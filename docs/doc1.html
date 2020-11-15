@@ -95,6 +95,666 @@
 <pre><code class="hljs">&gt; ./bp
 </code></pre>
 <iframe width="660" height="395" src="https://www.youtube.com/embed/SwBF_PhpI_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="wrapper">
+  <div class="carousel">
+    <div class="inner">
+      <div class="slide active">
+        <h1>1</h1>
+      </div>
+      <div class="slide">
+        <h1>2</h1>
+      </div>
+      <div class="slide">
+        <h1>3</h1>
+      </div>
+    </div>
+    <div class="arrow arrow-left"></div>
+    <div class="arrow arrow-right"></div>
+  </div>
+</div>
+<style>
+  html, body{
+    background: #eee;
+    width: 100%;
+}
+<p>.wrapper{
+width:90%;
+position:relative;
+margin:5% auto 0;
+}</p>
+<p>/**</p>
+<ul>
+<li>Padding is set relative to the width</li>
+<li>of the element, so here padding-top:60% is</li>
+<li>a percentage of the width. This allows us</li>
+<li>to set the height as a ratio of the width</li>
+<li></li>
+</ul>
+<p>*/
+.carousel{
+width: 100%;
+position: relative;
+padding-top: 60%;
+overflow: hidden;
+}</p>
+<p>.inner{
+width: 100%;
+height: 100%;
+position: absolute;
+top:0;
+left: 0;
+}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>Animation styles</li>
+<li></li>
+<li>Notes:</li>
+<li><ol>
+<li>We use z-index to position active slides in-front</li>
+</ol></li>
+<li>of non-active slides</li>
+<li><ol start="2">
+<li>We set right:0 and left:0 on .slide to provide us with</li>
+</ol></li>
+<li>a default positioning on both sides of the slide. This allows</li>
+<li>us to trigger JS and CSS3 animations easily</li>
+<li></li>
+</ul>
+<p>*/
+.slide{
+width: 100%;
+height: 100%;
+position: absolute;
+top:0;
+right:0;
+left:0;
+z-index: 1;
+opacity: 0;
+}</p>
+<p>.slide.active,
+.slide.left,
+.slide.right{
+z-index: 2;
+opacity: 1;
+}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>JS animation styles</li>
+<li></li>
+<li>We use jQuery.animate to control the sliding animations</li>
+<li>when CSS3 animations are not available. In order for</li>
+<li>the next slide to slide in from the right, we need</li>
+<li>to change the left:0 property of the slide to left:auto</li>
+<li></li>
+</ul>
+<p>*/</p>
+<p>.js-reset-left{left:auto}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>CSS animation styles</li>
+<li></li>
+<li>.slide.left and .slide.right set-up</li>
+<li>the to-be-animated slide so that it can slide</li>
+<li>into view. For example, a slide that is about</li>
+<li>to slide in from the right will:</li>
+<li><ol>
+<li>Be positioned to the right of the viewport (right:-100%)</li>
+</ol></li>
+<li><ol start="2">
+<li>Slide in when the style is superseded with a more specific style (right:0%)</li>
+</ol></li>
+<li></li>
+</ul>
+<p>*/
+.slide.left{
+left:-100%;
+right:0;
+}</p>
+<p>.slide.right{
+right:-100%;
+left: auto;
+}</p>
+<p>.transition .slide.left{left:0%}
+.transition .slide.right{right:0%}</p>
+<p>/**</p>
+<ul>
+<li>The following classes slide the previously active</li>
+<li>slide out of view before positioning behind the</li>
+<li>currently active slide</li>
+<li></li>
+</ul>
+<p>*/
+.transition .slide.shift-right{right: 100%;left:auto}
+.transition .slide.shift-left{left: 100%;right:auto}</p>
+<p>/**</p>
+<ul>
+<li>This sets the CSS properties that will animate. We set the</li>
+<li>transition-duration property dynamically via JS.</li>
+<li>We use the browser's default transition-timing-function</li>
+<li>for simplicity's sake</li>
+<li></li>
+<li>It is important to note that we are using CodePen's inbuilt</li>
+<li>CSS3 property prefixer. For your own projects, you will need</li>
+<li>to prefix the transition and transform properties here to ensure</li>
+<li>reliable support across browsers</li>
+<li></li>
+</ul>
+<p>*/
+.transition .slide{
+transition-property: right, left, margin;
+}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>Indicators</li>
+<li></li>
+</ul>
+<p>*/
+.indicators{
+width:100%;
+position: absolute;
+bottom:0;
+z-index: 4;
+padding:0;
+text-align: center;
+}</p>
+<p>.indicators li{
+width: 13px;
+height: 13px;
+display: inline-block;
+margin: 5px;
+background: #fff;
+list-style-type: none;
+border-radius: 50%;
+cursor:pointer;
+transition:background 0.3s ease-out;
+}</p>
+<p>.indicators li.active{background:#93278f}</p>
+<p>.indicators li:hover{background-color:#2b2b2b}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>Arrows</li>
+<li></li>
+</ul>
+<p>*/
+.arrow{
+width: 20px;
+height: 20px;
+position:absolute;
+top:50%;
+z-index:5;
+border-top:3px solid #fff;
+border-right:3px solid #fff;
+cursor:pointer;
+transition:border-color 0.3s ease-out;
+}</p>
+<p>.arrow:hover{border-color:#93278f}</p>
+<p>.arrow-left{
+left:20px;
+transform:rotate(225deg);
+}</p>
+<p>.arrow-right{
+right:20px;
+transform:rotate(45deg);
+}</p>
+<p>/**</p>
+<ul>
+<li>==========================</li>
+<li>For demo purposes only</li>
+<li></li>
+<li>Please note that the styles below are used</li>
+<li>for the purposes of this demo only. There is no need</li>
+<li>to use these in any of your own projects</li>
+<li></li>
+</ul>
+<p>*/
+.slide{
+text-align:center;
+padding-top:25%;
+background-size:cover;
+}</p>
+<p>h1{
+width:100px;
+height:100px;
+background-color:rgba(146, 45, 141,0.7);
+margin:auto;
+line-height:100px;
+color:#fff;
+font-size:2.4em;
+border-radius:50%;
+}</p>
+<p>.slide:nth-child(1){
+background-image:url(<a href="http://mamiskincare.net/wp-content/uploads/2015/11/inspire-fashion-ideas-for-styleator-concept-with-fashion-style-for-fall-2015-with-street-style-at-stockholm-fashion-week-fall-winter-2015-2016-15.jpg">http://mamiskincare.net/wp-content/uploads/2015/11/inspire-fashion-ideas-for-styleator-concept-with-fashion-style-for-fall-2015-with-street-style-at-stockholm-fashion-week-fall-winter-2015-2016-15.jpg</a>);
+}</p>
+<p>.slide:nth-child(2){
+background-image:url(<a href="http://conversationsabouther.net/wp-content/uploads/2015/03/1-seoul-fashion-week-fall-2015-street-style-45.jpg">http://conversationsabouther.net/wp-content/uploads/2015/03/1-seoul-fashion-week-fall-2015-street-style-45.jpg</a>);
+}</p>
+<p>.slide:nth-child(3){
+background-image:url(<a href="https://dosenyc.files.wordpress.com/2015/08/eleonora-sebastiani-and-roberto-mararo.jpg">https://dosenyc.files.wordpress.com/2015/08/eleonora-sebastiani-and-roberto-mararo.jpg</a>);
+}</p>
+</style>
+<p><script
+  src="https://code.jquery.com/jquery-2.1.3.min.js"
+  integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM="
+  crossorigin="anonymous"></p>
+</script>
+<script>
+<p>/*</p>
+<ul>
+<li>We trigger the factory() function is different</li>
+<li>ways to support modular JavaScript libraries. See</li>
+<li>the 'Wrapping Up' section of the tutorial for</li>
+<li>more information</li>
+<li></li>
+</ul>
+<p>*/
+;(function(factory){</p>
+<p>if (typeof define === 'function' &amp;&amp; define.amd) {
+define(['jquery'], factory);
+} else if (typeof exports !== 'undefined') {
+module.exports = factory(require('jquery'));
+} else {
+factory(jQuery);
+}</p>
+<p>})(function($){</p>
+<p>/*
+* We define Zippy as a variable of type ‘function’.</p>
+<ul>
+<li>Here, we use an anonymous function to ensure</li>
+<li>that the logic inside the function is executed immediately.
+<ul>
+<li></li>
+</ul>
+*/
+var Zippy = (function(element, settings){</li>
+</ul>
+<pre><code class="hljs">var instanceUid = 0;
+
+/*
+ * The constructor function for Zippy
+ *
+ */
+function _Zippy(element, settings){
+  this.defaults = {
+    slideDuration: '3000',
+    speed: 500,
+    arrowRight: '.arrow-right',
+    arrowLeft: '.arrow-left'
+  };
+  
+  // We create a new property to hold our default settings after they
+  // have been merged with user supplied settings
+  this.settings = $.extend({},this,this.defaults,settings);
+  
+  // This object holds values that will change as the plugin operates
+  this.initials = {
+    currSlide : 0,
+    $currSlide: null,
+    totalSlides : false,
+    csstransitions: false
+  };
+  
+  // Attaches the properties of this.initials as direct properties of Zippy
+  $.extend(this,this.initials);
+  
+  // Here we'll hold a reference to the DOM element passed in
+  // by the $.each function when this plugin was instantiated
+  this.$el = $(element);
+  
+  // Ensure that the value of 'this' always references Zippy
+  this.changeSlide = $.proxy(this.changeSlide,this);
+  
+  // We'll call our initiator function to get things rolling!
+  this.init();
+  
+  // A little bit of metadata about the instantiated object
+  // This property will be incremented everytime a new Zippy carousel is created
+     // It provides each carousel with a unique ID
+  this.instanceUid = instanceUid++;
+}
+
+return _Zippy;
+</code></pre>
+<p>})();</p>
+<p>/**
+* Called once per instance
+* Calls starter methods and associate the '.zippy-carousel' class
+* @params void
+* @returns void
+*
+*/
+Zippy.prototype.init = function(){
+//Test to see if cssanimations are available
+this.csstransitionsTest();
+// Add a class so we can style our carousel
+this.$el.addClass('zippy-carousel');
+// Build out any DOM elements needed for the plugin to run
+// Eg, we'll create an indicator dot for every slide in the carousel
+this.build();
+// Eg. Let the user click next/prev arrows or indicator dots
+this.events();
+// Bind any events we'll need for the carousel to function
+this.activate();
+// Start the timer loop to control progression to the next slide
+this.initTimer();
+};</p>
+<pre><code class="hljs">/**
+ * Appropriated out of Modernizr v2.8.3
+ * Creates a new DOM element and tests existence of properties on it's
+ * Style object to see if CSSTransitions are available
+ * @params void
+ * @returns void
+ *
+ */
+Zippy.prototype.csstransitionsTest = function(){
+    var elem = document.createElement('modernizr');
+    //A list of properties to test for
+    var props = [&quot;transition&quot;,&quot;WebkitTransition&quot;,&quot;MozTransition&quot;,&quot;OTransition&quot;,&quot;msTransition&quot;];
+    //Iterate through our new element's Style property to see if these properties exist
+    for ( var i in props ) {
+        var prop = props[i];
+        var result = elem.style[prop] !== undefined ? prop : false;
+        if (result){
+            this.csstransitions = result;
+            break;
+        } 
+    } 
+};
+
+/**
+ * Add the CSSTransition duration to the DOM Object's Style property
+ * We trigger this function just before we want the slides to animate
+ * @params void
+ * @returns void
+ *
+ */
+Zippy.prototype.addCSSDuration = function(){
+    var _ = this;
+    this.$el.find('.slide').each(function(){
+        this.style[_.csstransitions+'Duration'] = _.settings.speed+'ms';
+    });
+}
+
+/**
+</code></pre>
+<ul>
+<li>Remove the CSSTransition duration from the DOM Object's style property</li>
+<li>We trigger this function just after the slides have animated</li>
+<li>@params void</li>
+<li>@returns void</li>
+<li></li>
+</ul>
+<p>*/
+Zippy.prototype.removeCSSDuration = function(){
+var _ = this;
+this.$el.find('.slide').each(function(){
+this.style[_.csstransitions+'Duration'] = '';
+});
+}</p>
+<pre><code class="hljs">/**
+ * Creates a list of indicators based on the amount of slides
+ * @params void
+ * @returns void
+ *
+ */ 
+Zippy.prototype.build = function(){
+    var $indicators = this.$el.append('&lt;ul class=&quot;indicators&quot; &gt;').find('.indicators');
+    this.totalSlides = this.$el.find('.slide').length;
+    for(var i = 0; i &lt; this.totalSlides; i++) $indicators.append('&lt;li data-index='+i+'&gt;');
+};
+
+/**
+ * Activates the first slide
+ * Activates the first indicator
+ * @params void
+ * @returns void
+ *
+ */ 
+Zippy.prototype.activate = function(){
+    this.$currSlide = this.$el.find('.slide').eq(0);
+    this.$el.find('.indicators li').eq(0).addClass('active');
+};
+
+/**
+</code></pre>
+<ul>
+<li>Associate event handlers to events</li>
+<li>For arrow events, we send the placement of the next slide to the handler</li>
+<li>@params void</li>
+<li>@returns void</li>
+<li></li>
+</ul>
+<p>*/
+Zippy.prototype.events = function(){
+$('body')
+.on('click',this.settings.arrowRight,{direction:'right'},this.changeSlide)
+.on('click',this.settings.arrowLeft,{direction:'left'},this.changeSlide)
+.on('click','.indicators li',this.changeSlide);
+};</p>
+<pre><code class="hljs">/**
+ * TIMER
+ * Resets the timer
+ * @params void
+ * @returns void
+ *
+ */
+Zippy.prototype.clearTimer = function(){
+    if (this.timer) clearInterval(this.timer);
+};
+
+/**
+ * TIMER
+ * Initialise the timer
+ * @params void
+ * @returns void
+ *
+ */
+Zippy.prototype.initTimer = function(){
+    this.timer = setInterval(this.changeSlide, this.settings.slideDuration);
+};
+
+/**
+ * TIMER
+ * Start the timer
+ * Reset the throttle to allow changeSlide to be executable
+ * @params void
+ * @returns void
+ *
+ */
+Zippy.prototype.startTimer = function(){
+    this.initTimer();
+    this.throttle = false;
+};
+
+/**
+ * MAIN LOGIC HANDLER
+ * Triggers a set of subfunctions to carry out the animation
+ * @params  object  event
+ * @returns void
+ *
+ */
+Zippy.prototype.changeSlide = function(e){
+    //Ensure that animations are triggered one at a time
+    if (this.throttle) return;
+    this.throttle = true;
+    
+    //Stop the timer as the animation is getting carried out
+    this.clearTimer();
+    
+    // Returns the animation direction (left or right)
+    var direction = this._direction(e);
+    
+    // Selects the next slide
+    var animate = this._next(e,direction);
+    if (!animate) return;
+    
+    //Active the next slide to scroll into view
+    var $nextSlide = this.$el.find('.slide').eq(this.currSlide).addClass(direction + ' active');
+    
+if (!this.csstransitions){
+        this._jsAnimation($nextSlide,direction);
+    } else {
+        this._cssAnimation($nextSlide,direction);
+    }
+};
+
+/**
+ * Returns the animation direction, right or left
+ * @params  object  event
+ * @returns strong  animation direction
+ *
+ */
+Zippy.prototype._direction = function(e){
+    var direction;
+    
+    // Default to forward movement
+    if (typeof e !== 'undefined'){
+        direction = (typeof e.data === 'undefined' ? 'right' : e.data.direction);
+    } else {
+        direction = 'right';
+    }
+    return direction;
+};
+
+/**
+ * Updates our plugin with the next slide number
+ * @params  object  event
+ * @params  string  animation direction
+ * @returns boolean continue to animate?
+ *
+ */
+Zippy.prototype._next = function(e,direction){
+    
+// If the event was triggered by a slide indicator, we store the data-index value of that indicator
+    var index = (typeof e !== 'undefined' ? $(e.currentTarget).data('index') : undefined);
+    
+    //Logic for determining the next slide
+    switch(true){
+        //If the event was triggered by an indicator, we set the next slide based on index
+   case( typeof index !== 'undefined'):
+            if (this.currSlide == index){
+                this.startTimer();
+                return false;
+            } 
+            this.currSlide = index;
+        break;
+        case(direction == 'right' &amp;&amp; this.currSlide &lt; (this.totalSlides - 1)):
+            this.currSlide++;
+        break;
+        case(direction == 'right'):
+            this.currSlide = 0;
+        break;
+        case(direction == 'left' &amp;&amp; this.currSlide === 0):
+            this.currSlide = (this.totalSlides - 1);
+        break;
+        case(direction == 'left'):
+            this.currSlide--;
+        break;
+    }
+    return true;
+};
+
+/**
+ * Executes the animation via CSS transitions
+ * @params  object  Jquery object the next slide to slide into view
+ * @params  string  animation direction
+ * @returns void
+ *
+ */
+Zippy.prototype._cssAnimation = function($nextSlide,direction){
+//Init CSS transitions
+    setTimeout(function(){
+        this.$el.addClass('transition');
+        this.addCSSDuration();
+        this.$currSlide.addClass('shift-'+direction);
+    }.bind(this),100);
+    
+    //CSS Animation Callback
+    //After the animation has played out, remove CSS transitions
+    //Remove unnecessary classes
+    //Start timer
+    setTimeout(function(){
+        this.$el.removeClass('transition');
+        this.removeCSSDuration();
+        this.$currSlide.removeClass('active shift-left shift-right');
+        this.$currSlide = $nextSlide.removeClass(direction);
+        this._updateIndicators();
+        this.startTimer();
+    }.bind(this),100 + this.settings.speed);
+};
+
+/**
+ * Executes the animation via JS transitions
+ * @params  object  Jquery object the next slide to slide into view
+ * @params  string  animation direction
+ * @returns void
+ *
+ */
+Zippy.prototype._jsAnimation = function($nextSlide,direction){
+    //Cache this reference for use inside animate functions
+    var _ = this;
+    
+ // See CSS for explanation of .js-reset-left
+    if(direction == 'right') _.$currSlide.addClass('js-reset-left');
+    
+ var animation = {};
+    animation[direction] = '0%';
+    
+    var animationPrev = {};
+    animationPrev[direction] = '100%';
+    
+    //Animation: Current slide
+    this.$currSlide.animate(animationPrev,this.settings.speed);
+    
+    //Animation: Next slide
+    $nextSlide.animate(animation,this.settings.speed,'swing',function(){
+        //Get rid of any JS animation residue
+        _.$currSlide.removeClass('active js-reset-left').attr('style','');
+        //Cache the next slide after classes and inline styles have been removed
+        _.$currSlide = $nextSlide.removeClass(direction).attr('style','');
+        _._updateIndicators();
+        _.startTimer();
+    });
+};
+</code></pre>
+<p>/**
+* Ensures the slide indicators are pointing to the currently active slide
+* @params  void
+* @returns void
+*
+*/
+Zippy.prototype._updateIndicators = function(){
+this.$el.find('.indicators li').removeClass('active').eq(this.currSlide).addClass('active');
+};</p>
+<pre><code class="hljs">/**
+ * Initialize the plugin once for each DOM object passed to jQuery
+ * @params  object  options object
+ * @returns void
+ *
+ */
+$.fn.Zippy = function(options){
+
+return this.each(function(index,el){
+  
+  el.Zippy = new Zippy(el,options);
+  
+});
+</code></pre>
+<p>};</p>
+<p>});</p>
+<p>// Custom options for the carousel
+var args = {
+arrowRight : '.arrow-right', //A jQuery reference to the right arrow
+arrowLeft : '.arrow-left', //A jQuery reference to the left arrow
+speed : 1000, //The speed of the animation (milliseconds)
+slideDuration : 4000 //The amount of time between animations (milliseconds)
+};</p>
+<p>$('.carousel').Zippy(args);</p>
+</script>
 <p>The first time you run Botpress, the built-in modules take some time to install. This will only happen the first time you run Botpress, subsequent runs will be much faster.</p>
 <p>You may also start Botpress Server using the Command Line Interface (CLI). To see all the commands available, run <code>./bp --help</code>.</p>
 <h2><a class="anchor" aria-hidden="true" id="offline-servers"></a><a href="#offline-servers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Offline Servers</h2>
