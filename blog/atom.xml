@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Michael-N-M.github.io/botpress-docs/blog</id>
-    <title>| Developers Guide Blog</title>
+    <title>| Developer's Guide Blog</title>
     <updated>2017-10-24T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Michael-N-M.github.io/botpress-docs/blog"/>
-    <subtitle>The best place to stay up-to-date with the latest | Developers Guide news and events.</subtitle>
+    <subtitle>The best place to stay up-to-date with the latest | Developer's Guide news and events.</subtitle>
     <logo>https://Michael-N-M.github.io/botpress-docs/img/botpress_icon.svg</logo>
-    <rights>Copyright © 2020 Botpress Inc.</rights>
+    <rights>Copyright © 2020 Botpress, Inc.</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
         <id>https://Michael-N-M.github.io/botpress-docs/blog/2017/10/24/new-version-1.0.0.html</id>

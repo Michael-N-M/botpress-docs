@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Using a 3rd party NLU · | Developer&#x27;s Guide</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:version" content="12.14.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Using a 3rd party NLU · | Developer&#x27;s Guide"/><meta property="og:type" content="website"/><meta property="og:url" content="https://Michael-N-M.github.io/botpress-docs/"/><meta property="og:description" content="## Overview"/><meta property="og:image" content="https://Michael-N-M.github.io/botpress-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://Michael-N-M.github.io/botpress-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/botpress-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/js/hotjar.js"></script><script src="/botpress-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/botpress-docs/css/main.css"/><script src="/botpress-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/botpress-docs/"><img class="logo" src="/botpress-docs/img/botpress_icon.svg" alt="| Developer&#x27;s Guide"/><h2 class="headerTitleWithLogo">| Developer&#x27;s Guide</h2></a><a href="/botpress-docs/versions"><h3>12.14.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/botpress-docs/docs/12.14.0/introduction" target="_self">Docs</a></li><li class=""><a href="https://botpress.com/reference/" target="_self">SDK</a></li><li class=""><a href="https://forum.botpress.com/" target="_self">Community</a></li><li class=""><a href="https://github.com/botpress/botpress" target="_self">Github</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorials</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Release Notes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/releases/migrate">Migrations</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/releases/release-notes">Release Notes</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/releases/v12_10_0">Release Notes - v12.10.0</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting Started<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/quickstart">Quick Start</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/updating">Updating to New Releases</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/troubleshoot">Troubleshoot</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Main Concepts<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/content">CMS</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/dialog">Dialog Engine</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/code">Actions &amp; Hooks</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/memory">Memory</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/module">Modules</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/nlu">NLU</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/main/emulator">Emulator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Advanced Guides<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/debug">Debug</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/authentication">Authentication Methods</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/custom-module">Custom Module</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/performances">Hardware &amp; Performances</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/hosting">Hosting</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/versions">Version Control</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/development-pipeline">Development Pipelines</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/advanced/cluster">Clustering</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Channels<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/web">Website Embedding</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/messenger">Facebook Messenger</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/telegram">Telegram</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/teams">Microsoft Teams</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/converse">Converse API</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/slack">Slack</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/smooch">Smooch (Sunshine Conversations)</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/channels/faq">FAQ</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/cluster-digital-ocean">Deploying a cluster on Digital Ocean</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/intent-matching">How to act on an intent</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/proactive">Acting Proactively</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/carousel-postback">Using Carousel Postback</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/skill-slot">How to use Slot Skill</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/skill-call-api">How to use Call API</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/external-api">Calling an API in a Custom Action</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/shortlinks">Shortlinks</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/existing-backend">Connecting your bot with your existing backend</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/database">Supported databases</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/timeouts">Timeouts</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/hitl">Human in the loop</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/jump-to">Jump To</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/interbot">Inter-bot Communication / Delegation</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/contextual-faq">Contextual FAQ</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/chat-3rd-party-OAuth">Authenticate a user against a 3rd Party OAuth</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/listen-file-changes">Listening for file changes</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/3rd-party-NLU">Using a 3rd party NLU</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/tutorials/uipath">Using the UiPath integration for Botpress</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Pro Edition<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/about-pro">About</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/licensing">Licensing</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/rbac">Configuring RBAC</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/monitoring">Monitoring &amp; Alerting</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/pipelines">Bot Pipelines</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/12.14.0/pro/i18n">Internationalization</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Using a 3rd party NLU</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>Botpress native NLU runs on premise and supports a finite set of languages. If you plan do develop bots in languages that are not supported by Botpress or if you simply want to use another NLU solution, then you'll need to setup a 3rd party NLU connector. To achieve this we'll use the power of Botpress <a href="../main/code#hooks">Hooks</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="define-languages"></a><a href="#define-languages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define languages</h3>
+<p>One use case of using a 3rd party NLU is to support more languages then those handled by Botpress Native NLU. In order for Botpress to keep working properly (defining intents &amp; content), you'll have to tell Botpress what are the new languages you want to support. To do so, open <code>botpress.config.json</code> and set the <code>additionalLanguages</code> property. Let's say we want to support <strong>Swedish</strong> and <strong>Norwegian</strong>, the configuration would look like the following:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"additionalLanguages"</span>: [
+    {
+      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"sv"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Swedish"</span>
+    },
+    {
+      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"no"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Norwegian"</span>
+    }
+  ]
+}
+</code></pre>
+<p>Now that this is done, you can go in your bot config page and choose the language(s) you want your bot to support. For more details on this <a href="../advanced/i18n">check the docs</a>. Note that multilingual is a Botpress Pro feature.</p>
+<h3><a class="anchor" aria-hidden="true" id="sync-nlu-data-to-3rd-party"></a><a href="#sync-nlu-data-to-3rd-party" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sync NLU data to 3rd party</h3>
+<p>This section is useful if you want to use the Botpress NLU user interface to define your intents, entities and slots. You can skip if this section if you don't want to use the user interface.</p>
+<p>Intents and entities are stored as JSON in BPFS (formerly ghost) which stores data either on local filesystem or in the database. The first thing we want to do is to listen on any intents/entities changes and sync the data to our 3rd party NLU (same as the <a href="listen-file-changes">previous tutorial</a>). This way, when one edits intent or entities in the NLU UI, we get notified. We can do this with a Botpress <a href="../main/code#after-bot-mount">after bot mount hook</a>. You can use the code editor module to create hooks easily. Here's how the code for our <code>fileWatcher</code> looks like.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sync</span>(<span class="hljs-params">bp: typeof sdk, botId: string</span>) </span>{
+  <span class="hljs-comment">// create a BPFS (ghost) instance for our bot</span>
+  <span class="hljs-keyword">const</span> ghost = bp.ghost.forBot(botId)
+
+  <span class="hljs-comment">// listen on file changes</span>
+  ghost.onFileChanged(<span class="hljs-keyword">async</span> file =&gt; {
+    <span class="hljs-built_in">console</span>.log(file)
+  })
+}
+
+<span class="hljs-comment">//those parameters area accessible in current scope</span>
+<span class="hljs-keyword">return</span> sync(sdk, botId)
+</code></pre>
+<p><code>onFileChanged</code> is called with the file name containing changes when a file is either created, edited or deleted.
+What we want to do now is to check if the change is relevant (i.e change in intents/entities) and sync the data to your custom NLU. Our hook will now look like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> axios = <span class="hljs-built_in">require</span>(<span class="hljs-string">'axios'</span>)
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sync</span>(<span class="hljs-params">bp: typeof sdk, botId: string</span>) </span>{
+  <span class="hljs-keyword">const</span> ghost = bp.ghost.forBot(botId)
+  ghost.onFileChanged(<span class="hljs-keyword">async</span> f =&gt; {
+    <span class="hljs-keyword">if</span> (f.includes(<span class="hljs-string">'intents'</span>) || f.includes(<span class="hljs-string">'entities'</span>)) {
+      <span class="hljs-comment">// we get all intents</span>
+      <span class="hljs-keyword">const</span> intentNames = <span class="hljs-keyword">await</span> ghost.directoryListing(<span class="hljs-string">'intents'</span>, <span class="hljs-string">'*.json'</span>)
+      <span class="hljs-keyword">const</span> intents = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all(intentNames.map(<span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> ghost.readFileAsObject(<span class="hljs-string">'intents'</span>, name)))
+      <span class="hljs-comment">// we get all entities</span>
+      <span class="hljs-keyword">const</span> entNames = <span class="hljs-keyword">await</span> ghost.directoryListing(<span class="hljs-string">'entities'</span>, <span class="hljs-string">'*.json'</span>)
+      <span class="hljs-keyword">const</span> entities = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all(entNames.map(<span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> ghost.readFileAsObject(<span class="hljs-string">'entities'</span>, name)))
+      <span class="hljs-comment">// TODO process intents and entities in the format required by your NLU</span>
+
+      <span class="hljs-comment">/*
+      * Here you would call your own NLU provider by http with processed data
+      *
+      * await axios.post('http://NLUprovider/train', {intents, entities})
+      *
+      */</span>
+    }
+  })
+</code></pre>
+<p>Here you go, you can now still use the Botpress NLU UI to define your intents/entities and push training data to your NLU engine.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-your-3rd-party-nlu-for-classification-and-extraction"></a><a href="#use-your-3rd-party-nlu-for-classification-and-extraction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use your 3rd Party NLU for classification and extraction</h3>
+<p>We will use a similar strategy for prediction time. Basically, what we want to do is call our 3rd party NLU for each incoming user message. We will use a <a href="../main/code#before-incoming-middleware">before incoming hook</a> which is fired when a user message gets in Botpress. The code is not complex, just keep in mind that Botpress works with a precise data structure, so you'll need to map the response data of your NLU provider to <a href="https://botpress.com/reference/interfaces/_botpress_sdk_.io.eventunderstanding.html">Botpress NLU data format</a>. The hook will look like the following:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hook</span>(<span class="hljs-params">bp: <span class="hljs-keyword">typeof</span> sdk, event: sdk.IO.IncomingEvent</span>) </span>{
+  <span class="hljs-comment">/** Your code starts below */</span>
+
+  <span class="hljs-keyword">const</span> myHook = <span class="hljs-keyword">async</span> (bp, event) =&gt; {
+    <span class="hljs-keyword">const</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>)
+
+    <span class="hljs-comment">/**
+     * Returns the detected language (e.g. 'en', 'fr', 'es', etc) given a string of text
+     */</span>
+    <span class="hljs-keyword">const</span> detectLanguage = <span class="hljs-keyword">async</span> text =&gt; {
+      <span class="hljs-comment">// Here, you can use your own service to detect the language given the user's text</span>
+      <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">'https://langdetect.yourdomain.com'</span>, { input: text })
+      <span class="hljs-keyword">return</span> response.data.lang
+    }
+
+    <span class="hljs-comment">/**
+     * Given an input and its language, returns a nlu-compatible object
+     */</span>
+    <span class="hljs-keyword">const</span> predict = <span class="hljs-keyword">async</span> (lang, text) =&gt; {
+      <span class="hljs-comment">// Important: the result must have this shape in order</span>
+      <span class="hljs-comment">// for Botpress to process it correctly downstream</span>
+      <span class="hljs-keyword">const</span> result = {
+        entities: [],
+        language: lang,
+        detectedLanguage: lang,
+        ambiguous: <span class="hljs-literal">false</span>,
+        slots: {},
+        intent: { name: <span class="hljs-string">'none'</span>, confidence: <span class="hljs-number">1</span>, context: <span class="hljs-string">'global'</span> },
+        intents: [],
+        errored: <span class="hljs-literal">false</span>,
+        includedContexts: [<span class="hljs-string">'global'</span>],
+        ms: <span class="hljs-number">0</span>
+      }
+
+      <span class="hljs-keyword">let</span> response
+      <span class="hljs-keyword">switch</span> (lang) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">'en'</span>:
+          <span class="hljs-comment">// You</span>
+          response = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">'https://en-server.yourdomain.com'</span>, { input: text })
+          <span class="hljs-comment">// You are responsible for mapping the response's data</span>
+          <span class="hljs-comment">// to the result object, so it conforms with Botpress's expected format</span>
+          result.intent = response.data.intent
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-string">'fr'</span>:
+          <span class="hljs-comment">// We only use intents from this service</span>
+          response = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">'https://detect.nlpfrancais.fr'</span>, { input: text })
+          result.intents = response.data.result.intentions
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-string">'es'</span>:
+          <span class="hljs-comment">// This service returns more relevant information. We reuse</span>
+          <span class="hljs-comment">// slots, intents and intent from the service's response</span>
+          response = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">'https://nlufrancais.anothercompany.com'</span>, { input: text })
+          result.slots = response.data.slots
+          result.intents = response.data.intents
+          result.intent = response.data.intent
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">default</span>:
+          <span class="hljs-keyword">break</span>
+      }
+
+      <span class="hljs-keyword">return</span> result
+    }
+
+    <span class="hljs-comment">// Filter out unwanted events</span>
+    <span class="hljs-keyword">if</span> (event.type === <span class="hljs-string">'session_reset'</span> || event.type === <span class="hljs-string">'visit'</span> || event.type === <span class="hljs-string">'bp_dialog_timeout'</span>) {
+      <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-comment">// We must disable the native NLU for this even,</span>
+    event.setFlag(bp.IO.WellKnownFlags.SKIP_NATIVE_NLU, <span class="hljs-literal">true</span>)
+
+    <span class="hljs-comment">// Now, we detect the language from the user's input</span>
+    <span class="hljs-keyword">const</span> detectedLanguage = <span class="hljs-keyword">await</span> detectLanguage(event.payload.text)
+
+    <span class="hljs-comment">// Then we process the user's input, knowing the user's language</span>
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> predict(detectedLanguage, event.payload.text)
+
+    <span class="hljs-comment">// Finally, we overwrite the nlu property of the event with our results</span>
+    _.assign(event, {
+      nlu: result
+    })
+  }
+
+  <span class="hljs-keyword">return</span> myHook(bp, event)
+
+  <span class="hljs-comment">/** Your code ends here */</span>
+}
+</code></pre>
+<p>That's about it, you now have Botpress integrated with your 3rd party NLU.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/12.14.0/tutorials/listen-file-changes"><span class="arrow-prev">← </span><span>Listening for file changes</span></a><a class="docs-next button" href="/botpress-docs/docs/12.14.0/tutorials/uipath"><span class="function-name-prevnext">Using the UiPath integration for Botpress</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a><ul class="toc-headings"><li><a href="#define-languages">Define languages</a></li><li><a href="#sync-nlu-data-to-3rd-party">Sync NLU data to 3rd party</a></li><li><a href="#use-your-3rd-party-nlu-for-classification-and-extraction">Use your 3rd Party NLU for classification and extraction</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div><h5>Docs</h5><a href="/botpress-docs/docs/introduction">Getting Started</a><a href="https://botpress.com/reference/">API Reference</a></div><div><h5>Community</h5><a href="https://forum.botpress.com/" target="_blank" rel="noreferrer noopener">forum.botpress.com</a><a href="https://stackoverflow.com/search?q=botpress" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/botpress">GitHub</a><a class="github-button" href="https://github.com/botpress/botpress" data-icon="octicon-star" data-count-href="/botpress/botpress/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><a href="https://twitter.com/getbotpress">Twitter</a></div></section><a href="https://botpress.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/botpress.svg" alt="Botpress, Inc." width="170" height="45"/></a><section class="copyright">Copyright © 2020 Botpress, Inc.</section></footer></div></body></html>

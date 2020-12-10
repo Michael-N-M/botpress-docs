@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Creating Modules · | Developer&#x27;s Guide</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;br/&gt;"/><meta name="docsearch:version" content="11.6.2"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Creating Modules · | Developer&#x27;s Guide"/><meta property="og:type" content="website"/><meta property="og:url" content="https://Michael-N-M.github.io/botpress-docs/"/><meta property="og:description" content="&lt;br/&gt;"/><meta property="og:image" content="https://Michael-N-M.github.io/botpress-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://Michael-N-M.github.io/botpress-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/botpress-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/js/hotjar.js"></script><script src="/botpress-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/botpress-docs/css/main.css"/><script src="/botpress-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/botpress-docs/"><img class="logo" src="/botpress-docs/img/botpress_icon.svg" alt="| Developer&#x27;s Guide"/><h2 class="headerTitleWithLogo">| Developer&#x27;s Guide</h2></a><a href="/botpress-docs/versions"><h3>11.6.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/botpress-docs/docs/11.6.2/introduction" target="_self">Docs</a></li><li class=""><a href="https://botpress.com/reference/" target="_self">SDK</a></li><li class=""><a href="https://forum.botpress.com/" target="_self">Community</a></li><li class=""><a href="https://github.com/botpress/botpress" target="_self">Github</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Developers</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting Started<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/troubleshoot">Troubleshoot</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/quickstart">Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Build<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/overview">High-level Overview</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/debug">Debugging</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/nlu">NLU</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/dialogs">Flows &amp; Dialogs</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/code">Custom Code</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/memory">Bot Memory and Data Retention</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/content">Content Management</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/build/channels">Messaging Channels</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Deploy<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/deploy/architecture">Architecture Overview</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/deploy/hosting">Hosting &amp; Environment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Manage<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/manage/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/manage/versions">Version control</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/manage/monitoring">Monitoring &amp; Alerting</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/manage/authentication">Authentication</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developers<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/developers/release-notes">Release Notes</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/developers/migrate">Migration</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/botpress-docs/docs/11.6.2/developers/create-module">Creating Modules</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/developers/cluster">Server Cluster</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/webchat-embedding">Embedding your bot on your website</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/existing-backend">Connecting your bot with your existing backend</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/database">Supported databases</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/hitl">Human in the loop</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/jump-to">Jump To</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/proactive">Acting Proactively</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/shortlinks">Shortlinks</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/timeouts">Timeouts</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/i18n">Internationalization (i18n)</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/external-api">Calling an API in a Custom Action</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/tutorials/chat-3rd-party-OAuth">Authenticate a user against a 3rd Party OAuth</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Botpress Pro<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/pro/about-pro">About</a></li><li class="navListItem"><a class="navItem" href="/botpress-docs/docs/11.6.2/pro/licensing">Licensing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Creating Modules</h1></header><article><div><span><p><br/></p>
+<blockquote>
+<p>⚠️ Not yet finalized, subject to breaking changes</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="why-should-i-create-a-module"></a><a href="#why-should-i-create-a-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why should I create a module?</h2>
+<p>Modules are very powerful and have a lot more features than before. They can register new actions, create multiple skills, provide new hooks, and soon they will be able to add new content types and content elements.</p>
+<p>Example: You can create a &quot;Restaurant&quot; module, which could be used by a restaurant owner to easily setup his bot. This could include special content types (food items, menu categories, etc), a reservation system, a list of common questions, a way to set opening hours, an example restaurant, etc.</p>
+<p>Check out our <a href="https://github.com/botpress/botpress/tree/master/modules">existing modules</a> to get a better idea of what's possible.</p>
+<h2><a class="anchor" aria-hidden="true" id="module-structure"></a><a href="#module-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module Structure</h2>
+<p>This is the basic structure that your module should have. Files or folder followed by a question mark are optional and discussed more thoroughly below.</p>
+<pre><code class="hljs css language-bash">module-directory
+├── build.extras.js?
+├── package.json
+└── src
+    ├── actions?
+    ├── backend
+    │   └── index.ts
+    ├── config.ts?
+    └── views
+        └── index.jsx
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="module-builder"></a><a href="#module-builder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module Builder</h2>
+<p>Module creation is now standardized, thanks to a new component called the &quot;Module Builder&quot;.</p>
+<p>It is the only dependency you have to add in your dev-dependencies. It handles typescript compilation, webpack setup and compilation, packaging for distribution, etc... Here's how to get started:</p>
+<ol>
+<li>Add the <code>module-builder</code> as a dependency:</li>
+</ol>
+<pre><code class="hljs css language-js"><span class="hljs-string">"devDependencies"</span>: {
+  <span class="hljs-string">"module-builder"</span>: <span class="hljs-string">"../../build/module-builder"</span>
+}
+</code></pre>
+<ol>
+<li>Add those scripts commands</li>
+</ol>
+<pre><code class="hljs css language-js"><span class="hljs-string">"scripts"</span>: {
+  <span class="hljs-string">"build"</span>: <span class="hljs-string">"./node_modules/.bin/module-builder build"</span>,
+  <span class="hljs-string">"watch"</span>: <span class="hljs-string">"./node_modules/.bin/module-builder watch"</span>,
+  <span class="hljs-string">"package"</span>: <span class="hljs-string">"./node_modules/.bin/module-builder package"</span>
+}
+</code></pre>
+<p>Then you can build your module using <code>yarn build</code></p>
+<h3><a class="anchor" aria-hidden="true" id="overriding-webpack-options"></a><a href="#overriding-webpack-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overriding webpack options</h3>
+<p>It is possible to override webpack parameters by adding a &quot;webpack&quot; property to the <code>package.json</code> file of your module. When you override a property, you also remove the default settings that we've set, so we recommend adding them back when overriding. For example, if you'd like to add an additional external file:</p>
+<pre><code class="hljs css language-js"><span class="hljs-string">"webpack"</span>: {
+  <span class="hljs-string">"externals"</span>: {
+    <span class="hljs-comment">//These 3 are included by default</span>
+    <span class="hljs-string">"react"</span>: <span class="hljs-string">"React"</span>,
+    <span class="hljs-string">"react-dom"</span>: <span class="hljs-string">"ReactDOM"</span>,
+    <span class="hljs-string">"react-bootstrap"</span>: <span class="hljs-string">"ReactBootstrap"</span>,
+
+    <span class="hljs-comment">//Your new addition:</span>
+    <span class="hljs-string">"botpress/content-picker"</span>: <span class="hljs-string">"BotpressContentPicker"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="copying-extra-files"></a><a href="#copying-extra-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copying extra files</h3>
+<p>When you package your modules, only the files in the 'dist' folder are included in the zip, plus production-optimized node_modules.</p>
+<p>If you want to add special files to that folder (for example, copy automatically some files not handled by webpack), you need to add a simple file named <code>build.extras.js</code> at the root of your module (at the same level as <code>package.json</code>).</p>
+<p>Your file needs to export an array named <code>copyFiles</code> containing the paths to move. It keeps the same folder structure, only changing <code>src</code> for <code>dist</code></p>
+<p>build.extras.js</p>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">copyFiles</span>: [<span class="hljs-string">'src/backend/somefolder/myfile_*'</span>, <span class="hljs-string">'src/backend/binary/*'</span>]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="module-entry-point"></a><a href="#module-entry-point" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module Entry Point</h2>
+<p>This is where you define how Botpress will interact with your module. Your index.ts file must export an <code>sdk.ModuleEntryPoint</code> object. We recommend keeping your index.ts file small and split your module's logic in multiple files. We will explore each property below.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> entryPoint: sdk.ModuleEntryPoint = {
+  onServerStarted,
+  onServerReady,
+  onBotMount,
+  onBotUnmount,
+  onFlowChanged,
+  skills,
+  botTemplates,
+  <span class="hljs-attr">definition</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'my-module'</span>,
+    <span class="hljs-attr">menuIcon</span>: <span class="hljs-string">'some-icon'</span>,
+    <span class="hljs-attr">menuText</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">fullName</span>: <span class="hljs-string">'My Module'</span>,
+    <span class="hljs-attr">homepage</span>: <span class="hljs-string">'https://botpress.com'</span>,
+    <span class="hljs-attr">noInterface</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">plugins</span>: []
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> entryPoint
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="onserverstarted"></a><a href="#onserverstarted" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>onServerStarted</h3>
+<p>This method is called as soon as the bot is starting up. The server is not available at that time, and calls to other API will fail. This is usually used to set up database connection, which you can access via Knex (<code>bp.database</code>). You can <a href="/docs/create-module#database">read more about Database access here</a></p>
+<p>Example:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> onServerStarted = <span class="hljs-keyword">async</span> (bp: SDK) =&gt; {
+  <span class="hljs-keyword">await</span> db(bp)
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="onserverready"></a><a href="#onserverready" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>onServerReady</h3>
+<p>This is called once all modules are initialized and when the server is listening for incoming connections.</p>
+<p>Usually you will setup your <a href="/docs/create-module#api-endpoint">API endpoint</a> here.</p>
+<p>Example:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> onServerReady = <span class="hljs-keyword">async</span> (bp: SDK) =&gt; {
+  <span class="hljs-keyword">await</span> api(bp)
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="onbotmount--onbotunmount"></a><a href="#onbotmount--onbotunmount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>onBotMount &amp;&amp; onBotUnmount</h3>
+<p>These methods are called everytime a bot is started or stopped (either when starting Botpress or when creating or deleting a bot).</p>
+<p>Example:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> botScopedStorage: <span class="hljs-built_in">Map</span>&lt;string, MyStorage&gt; = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>&lt;string, MyStorage&gt;()
+
+<span class="hljs-keyword">const</span> onBotMount = <span class="hljs-keyword">async</span> (bp: SDK, <span class="hljs-attr">botId</span>: string) =&gt; {
+  <span class="hljs-keyword">const</span> storage = <span class="hljs-keyword">new</span> MyStorage(bp, botId)
+
+  botScopedStorage.set(botId, storage)
+}
+
+<span class="hljs-keyword">const</span> onBotUnmount = <span class="hljs-keyword">async</span> (botId: string) =&gt; {
+  botScopedStorage.delete(botId, storage)
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="onflowchanged"></a><a href="#onflowchanged" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>onFlowChanged</h3>
+<p>This method is called whenever a node is renamed in a flow. This allows you to update your module's data so you are up-to-date with the new changes. For more information on how to implement this metho, please refer yourself to our implementation in the <a href="https://github.com/botpress/botpress/blob/master/modules/qna/src/backend/index.ts">QNA Module</a></p>
+<p>Example:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> onFlowChanged = <span class="hljs-keyword">async</span> (bp: SDK, <span class="hljs-attr">botId</span>: string, <span class="hljs-attr">flow</span>: Flow) =&gt; {
+  ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="skills"></a><a href="#skills" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>skills</h3>
+<p>When you create new skills, they need a way to generate the custom flow that will be used by the dialog engine. Skills defined here will be displayed in the flow editor in the drop down menu.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> skillsToRegister: sdk.Skill[] = [
+  {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'Choice'</span>, <span class="hljs-comment">// This must be the name of the component exported in your module full view</span>
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Choice'</span>, <span class="hljs-comment">// This is the value displayed to the user</span>
+    <span class="hljs-attr">flowGenerator</span>: choice.generateFlow
+  }
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="bottemplates"></a><a href="#bottemplates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>botTemplates</h3>
+<p>Templates allows you to create a new bot without starting from scratch. They can include about anything, like content elements, flows, NLU intents, QNAs, etc.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> botTemplates: sdk.BotTemplate[] = [
+  {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'welcome-bot'</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Welcome Bot'</span>,
+    <span class="hljs-attr">desc</span>: <span class="hljs-string">'This is a demonstration bot to showcase some capabilities'</span>
+  }
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="definition"></a><a href="#definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>definition</h3>
+<p>The definition is used by Botpress to setup your module.</p>
+<p>Please refer to the <a href="https://botpress.com/reference/">API Reference</a> for information on the possible options</p>
+<p>The only way to communicate with modules (or between them) is by using the API endpoint.
+All modules are isolated and receives their own instance of <code>bp</code></p>
+<h2><a class="anchor" aria-hidden="true" id="api-endpoint"></a><a href="#api-endpoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API Endpoint</h2>
+<p>The only way to communicate with modules (or between them) is by using the API endpoint.
+All modules are isolated and receives their own instance of <code>bp</code></p>
+<h3><a class="anchor" aria-hidden="true" id="consuming-api-externally-or-from-another-module"></a><a href="#consuming-api-externally-or-from-another-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Consuming API externally or from another module</h3>
+<p>The Botpress SDK exposes a method to get the axios headers for a request. It will automatically sets the base URL for the request, and will set the required headers to communicate with the specific bot. This method is <code>bp.http.getAxiosConfigForBot('bot123')</code></p>
+<p>The method also accepts a second parameter with additional options. Right now, the only available option is <code>localUrl</code>. When set to true, the module will communicate with the local url instead of the external one. Ex: <code>bp.http.getAxiosConfigForBot('bot123', { localUrl: true })</code></p>
+<p>Once you have this, you simply have to call the axios method of your choice, and add the config as the last parameter. Example:</p>
+<pre><code class="hljs css language-js">extractNluContent: <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> axiosConfig = bp.http.getAxiosConfigForBot(event.botId)
+  <span class="hljs-keyword">const</span> text = event.payload.text
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> axios.post(<span class="hljs-string">`/mod/nlu/extract`</span>, { text }, axiosConfig)
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="consuming-api-from-your-modules-views"></a><a href="#consuming-api-from-your-modules-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Consuming API from your module's views</h3>
+<p>When a user is using your module's interface, a bot is already selected so you just need to call <code>bp.axios</code>. It is always passed down to your react components as a property.</p>
+<pre><code class="hljs css language-JS"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.props.bp.axios.get(<span class="hljs-string">'/mod/my-module/query'</span>)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="creating-an-api-endpoint"></a><a href="#creating-an-api-endpoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating an API endpoint</h3>
+<p>Modules are global, as is the API, so they must be able to manage multiple bots. We recommend setting up the API route in the <code>onServerReady</code> method of your entry point.</p>
+<p>The bot ID targeted by the request is always available via <code>req.params.botId</code></p>
+<p>Setting up an API is very easy.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> router = bp.http.createRouterForBot(<span class="hljs-string">'dialog-sessions'</span>)
+
+router.get(<span class="hljs-string">'/count'</span>, <span class="hljs-keyword">async</span> (req, res) =&gt; {
+  <span class="hljs-keyword">const</span> botId = req.params.botId
+
+  <span class="hljs-keyword">const</span> { dialogSessions } = <span class="hljs-keyword">await</span> knex(<span class="hljs-string">'dialog_sessions'</span>)
+    .count(<span class="hljs-string">'id as dialogSessions'</span>)
+    .where({ botId })
+    .first()
+
+  res.send({ dialogSessions })
+})
+</code></pre>
+<p>In the example above, we added a route handler that will be available via <code>/mod/dialog-sessions/count</code> which fetches data from the database and returns the data as json.</p>
+<h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
+<p>Module configuration is handled automatically by Botpress (saving and loading). All you need to do is add a file named <code>config.ts</code> in your bot <code>src</code> folder. This file should be written in typescript (so your variables are correctly typed).</p>
+<p>Since an example is worth a thousand words, check out <a href="https://github.com/botpress/botpress/tree/master/modules">existing modules configuration files</a> to get a better idea.</p>
+<h2><a class="anchor" aria-hidden="true" id="database"></a><a href="#database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database</h2>
+<p>Botpress officially supports two databases: SQLite or Postgres. Your module can access the bot's database to create and update required tables.</p>
+<h3><a class="anchor" aria-hidden="true" id="initialization-and-table-creation"></a><a href="#initialization-and-table-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialization and Table creation</h3>
+<p>Tables initialization should be done in the <code>onServerStarted</code> block of your <code>src/backend/index.ts</code> file.</p>
+<p>index.ts</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> Database <span class="hljs-keyword">from</span> <span class="hljs-string">'./db'</span>
+
+<span class="hljs-keyword">let</span> db = <span class="hljs-literal">undefined</span>
+
+<span class="hljs-keyword">const</span> onServerStarted = <span class="hljs-keyword">async</span> (bp: SDK) =&gt; {
+  db = <span class="hljs-keyword">new</span> Database(bp)
+  <span class="hljs-keyword">await</span> db.initialize()
+}
+</code></pre>
+<p>db.ts</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Database</span> </span>{
+  <span class="hljs-attr">knex</span>: any
+
+  <span class="hljs-keyword">constructor</span>(private bp: SDK) {
+    <span class="hljs-keyword">this</span>.knex = bp.database
+  }
+
+  initialize() {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.knex) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'You must initialize the database before'</span>)
+    }
+
+    <span class="hljs-keyword">this</span>.knex.createTableIfNotExists(<span class="hljs-string">'my_module_db'</span>, ...)
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="migration"></a><a href="#migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Migration</h3>
+<p>Database migration isn't available at the moment, it should be added in a future iteration</p>
+<h3><a class="anchor" aria-hidden="true" id="knex-extension"></a><a href="#knex-extension" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Knex extension</h3>
+<p>We extended Knex functionality with common features that makes development easier, by handling internally differences between different databases. When accessing <code>bp.database</code>, you have access to all the usual Knex commands, plus the following ones</p>
+<h4><a class="anchor" aria-hidden="true" id="check-if-using-sqlite"></a><a href="#check-if-using-sqlite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check if using SQlite</h4>
+<p>The method <code>bp.database.isLite</code> returns true if the database is SQLite</p>
+<h4><a class="anchor" aria-hidden="true" id="table-creation"></a><a href="#table-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table creation</h4>
+<p>Here is a simple example to create your module's table if it is missing:</p>
+<p>Usage: <code>bp.database.createTableIfNotExists(table_name, data_callback)</code></p>
+<pre><code class="hljs css language-js">bp.database
+  .createTableIfNotExists(<span class="hljs-string">'my_module_table'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table</span>) </span>{
+    table.increments(<span class="hljs-string">'id'</span>).primary()
+    table.string(<span class="hljs-string">'type'</span>)
+    table.string(<span class="hljs-string">'text'</span>, <span class="hljs-number">640</span>)
+    table.jsonb(<span class="hljs-string">'raw_message'</span>)
+    table.timestamp(<span class="hljs-string">'ts'</span>)
+  })
+  .then(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-comment">// You may chain table creation</span>
+  })
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="insert-and-retrieve"></a><a href="#insert-and-retrieve" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insert and retrieve</h4>
+<p>Inserts the row in the database and returns the inserted row</p>
+<p>If you omit returnColumn or idColumn, it will use <code>id</code> as the default.</p>
+<p>Usage: <code>bp.database.insertAndRetrieve(table_name, data, returnColumn?, idColumn?)</code></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> someObject = (<span class="hljs-keyword">await</span> bp.database.insertAndRetrieve)(
+  <span class="hljs-string">'my_module_table'</span>,
+  {
+    <span class="hljs-attr">botId</span>: session.botId,
+    <span class="hljs-attr">important_data</span>: bp.database.json.set(data || {}),
+    <span class="hljs-attr">created_on</span>: bp.database.date.now()
+  },
+  [<span class="hljs-string">'botId'</span>, <span class="hljs-string">'important_data'</span>, <span class="hljs-string">'created_on'</span>]
+)
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="date-helper"></a><a href="#date-helper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Date helper</h4>
+<h2><a class="anchor" aria-hidden="true" id="views"></a><a href="#views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Views</h2>
+<p>There are two different type of views (or bundles) that your module can offer. A view can consist of multiple components. These components can be used by other modules, and your own module can also consume components of other modules.</p>
+<p>Check out the <a href="https://github.com/botpress/botpress/tree/master/examples">Complete Module Example on GitHub</a> for more details on how you can implement views.</p>
+<h3><a class="anchor" aria-hidden="true" id="full-view"></a><a href="#full-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full View</h3>
+<p>This view includes heavy dependencies, like react-bootstrap. When you want to add an interface for your module, your full view need to export a <code>default</code> component.
+The main view of the module is found in the <code>src/views/full/index.jsx</code> file by default.</p>
+<p>Skill components must be exported by this view (more on this below)</p>
+<h3><a class="anchor" aria-hidden="true" id="lite-view"></a><a href="#lite-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lite View</h3>
+<p>The lite view doesn't include any heavy dependency. Common use case is to add a custom, lightweight component on the web chat. This type of view was added to keep the size of the webchat bundle small so it loads faster, especially on mobile phones.</p>
+<h3><a class="anchor" aria-hidden="true" id="sharing-components-between-modules"></a><a href="#sharing-components-between-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sharing components between modules</h3>
+<p>It is now a lot easier to expose components for other modules or to use other module's components. Here is a quick example on how the webchat is able to display a component from a specific module:</p>
+<h4><a class="anchor" aria-hidden="true" id="display-a-custom-component-dynamically"></a><a href="#display-a-custom-component-dynamically" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display a custom component dynamically</h4>
+<p>When components are loaded this way, they are loaded and displayed immediately where the tag is placed.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Fetch the module injector. It is available on any of your module's view.</span>
+<span class="hljs-keyword">const</span> InjectedModuleView = <span class="hljs-keyword">this</span>.props.bp.getModuleInjector()
+
+<span class="hljs-comment">// Use is very straightforward: specify the module name, the name of the component, and if it is available on the lite or full view.</span>
+&lt;InjectedModuleView moduleName={moduleName} componentName={componentName} lite={<span class="hljs-literal">true</span>} extraProps={props} /&gt;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="load-a-modules-components-in-memory"></a><a href="#load-a-modules-components-in-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Load a module's components in memory</h4>
+<p>By loading components this way, they aren't displayed immediately on the page.
+They are accessible by using <code>window.botpress['moduleName']['componentName']</code></p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// The first parameter is the module name, the second specifies if it should load the lite or full view</span>
+<span class="hljs-keyword">this</span>.props.bp.loadModuleView(moduleName, <span class="hljs-literal">true</span>)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="skill-creation"></a><a href="#skill-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Skill Creation</h2>
+<p>There are a couple of steps required to create a new skill. Basically, a skill consist of a GUI to input values and a flow generator to create the interactions.</p>
+<h3><a class="anchor" aria-hidden="true" id="1-create-your-visual-component"></a><a href="#1-create-your-visual-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Create your visual component</h3>
+<p>The first step is to create the GUI that will be displayed to the user. You can create your component in the file <code>views/full/index.jsx</code>, or you can create it in a separate file, just make sure to export your skill component.</p>
+<p>The name of your component (in the below example, MyCustomSkill) needs to be the same used in step 3 below.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomSkill</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-creating-the-flow-generator"></a><a href="#2-creating-the-flow-generator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Creating the flow generator</h3>
+<p>The flow generator will create all the transitions and conditions based on the data that was feeded by the GUI. That method will be called by the Studio when the user has finished inputting all his data. Your method will receive a <code>data</code> object. and must return a partial flow.</p>
+<p>Example:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> generateFlow = <span class="hljs-keyword">async</span> (data: any, <span class="hljs-attr">metadata</span>: sdk.FlowGeneratorMetadata): <span class="hljs-built_in">Promise</span>&lt;sdk.FlowGenerationResult&gt; =&gt; {
+  <span class="hljs-keyword">const</span> nodes: sdk.SkillFlowNode[] = [
+    {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'entry'</span>,
+      <span class="hljs-attr">onEnter</span>: [],
+      <span class="hljs-attr">next</span>: [{ <span class="hljs-attr">condition</span>: <span class="hljs-string">'true'</span>, <span class="hljs-attr">node</span>: <span class="hljs-string">'...'</span> }]
+    }
+  ]
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">transitions</span>: createTransitions(data),
+    <span class="hljs-attr">flow</span>: {
+      <span class="hljs-attr">nodes</span>: nodes,
+      <span class="hljs-attr">catchAll</span>: {
+        <span class="hljs-attr">next</span>: []
+      }
+    }
+  }
+}
+
+<span class="hljs-keyword">const</span> createTransitions = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> transitions: sdk.NodeTransition[] = []
+  <span class="hljs-keyword">return</span> transitions
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> { generateFlow }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="3-connecting-those-components"></a><a href="#3-connecting-those-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Connecting those components</h3>
+<p>Once your view and the flow generator is ready, you need to inform Botpress about your skill.
+This is how you would register it.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Note the array, you can register multiple skills that way</span>
+<span class="hljs-keyword">const</span> skillsToRegister: sdk.Skill[] = [
+  {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'MyCustomSkill'</span>, <span class="hljs-comment">// Name of your exported component</span>
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'My Magic Custom Skill'</span>, <span class="hljs-comment">// Only used to display the skill in the list</span>
+    <span class="hljs-attr">flowGenerator</span>: generateFlow
+  }
+]
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> entryPoint: sdk.ModuleEntryPoint = {
+  ...,
+  <span class="hljs-attr">skills</span>: skillsToRegister
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="register-actions"></a><a href="#register-actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Register Actions</h2>
+<p>Modules can register new actions that will be available on the flow editor. Please check out the <a href="../build/code">Custom Code</a> section for more information about Actions.
+Those actions must be deployed to the <code>data/global/actions</code> folder to be recognized by Botpress. Here is how to do that:</p>
+<ol>
+<li>Create a folder named <code>actions</code> in <code>src</code></li>
+<li>Add your javascript files in the folder</li>
+<li>When you build your module, your files will be copied in the <code>dist</code> folder</li>
+<li>At every startup, action files are copied in <code>data/global/actions/$MY_MODULE/</code></li>
+</ol>
+<p>They are then accessible by the name <code>$MY_MODULE/$MY_ACTION</code> in any node or skill</p>
+<p>If your action requires external dependencies, you must add them on your module's <code>package.json</code> as dependencies. When the VM is initialized, we redirect <code>require</code> requests to the node_modules of its parent module.</p>
+<blockquote>
+<p>Many dependencies are already included with Botpress and do not need to be added to your package (ex: lodash, axios, etc... )</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/11.6.2/developers/migrate"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/botpress-docs/docs/11.6.2/developers/cluster"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#why-should-i-create-a-module">Why should I create a module?</a></li><li><a href="#module-structure">Module Structure</a></li><li><a href="#module-builder">Module Builder</a><ul class="toc-headings"><li><a href="#overriding-webpack-options">Overriding webpack options</a></li><li><a href="#copying-extra-files">Copying extra files</a></li></ul></li><li><a href="#module-entry-point">Module Entry Point</a><ul class="toc-headings"><li><a href="#onserverstarted">onServerStarted</a></li><li><a href="#onserverready">onServerReady</a></li><li><a href="#onbotmount--onbotunmount">onBotMount &amp;&amp; onBotUnmount</a></li><li><a href="#onflowchanged">onFlowChanged</a></li><li><a href="#skills">skills</a></li><li><a href="#bottemplates">botTemplates</a></li><li><a href="#definition">definition</a></li></ul></li><li><a href="#api-endpoint">API Endpoint</a><ul class="toc-headings"><li><a href="#consuming-api-externally-or-from-another-module">Consuming API externally or from another module</a></li><li><a href="#consuming-api-from-your-modules-views">Consuming API from your module's views</a></li><li><a href="#creating-an-api-endpoint">Creating an API endpoint</a></li></ul></li><li><a href="#configuration">Configuration</a></li><li><a href="#database">Database</a><ul class="toc-headings"><li><a href="#initialization-and-table-creation">Initialization and Table creation</a></li><li><a href="#migration">Migration</a></li><li><a href="#knex-extension">Knex extension</a></li></ul></li><li><a href="#views">Views</a><ul class="toc-headings"><li><a href="#full-view">Full View</a></li><li><a href="#lite-view">Lite View</a></li><li><a href="#sharing-components-between-modules">Sharing components between modules</a></li></ul></li><li><a href="#skill-creation">Skill Creation</a><ul class="toc-headings"><li><a href="#1-create-your-visual-component">1. Create your visual component</a></li><li><a href="#2-creating-the-flow-generator">2. Creating the flow generator</a></li><li><a href="#3-connecting-those-components">3. Connecting those components</a></li></ul></li><li><a href="#register-actions">Register Actions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div><h5>Docs</h5><a href="/botpress-docs/docs/introduction">Getting Started</a><a href="https://botpress.com/reference/">API Reference</a></div><div><h5>Community</h5><a href="https://forum.botpress.com/" target="_blank" rel="noreferrer noopener">forum.botpress.com</a><a href="https://stackoverflow.com/search?q=botpress" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/botpress">GitHub</a><a class="github-button" href="https://github.com/botpress/botpress" data-icon="octicon-star" data-count-href="/botpress/botpress/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><a href="https://twitter.com/getbotpress">Twitter</a></div></section><a href="https://botpress.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/botpress.svg" alt="Botpress, Inc." width="170" height="45"/></a><section class="copyright">Copyright © 2020 Botpress, Inc.</section></footer></div></body></html>
