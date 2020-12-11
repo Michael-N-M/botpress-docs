@@ -71,6 +71,10 @@
 <li><strong>Dropdown</strong> Displays a list of options to the user</li>
 </ul>
 <p>Botpress provides an interface to add and manage content. Content may also be added via the visual editor interface. Below is an overview of both methods of creating content.</p>
+<p>[<img src="/botpress-docs/docs/assets/addContent.gif" alt="Adding Content via CMS">
+The first method is to use the Content interface.</p>
+<p>[<img src="/botpress-docs/docs/assets/addContent_fe.gif" alt="Adding Content via Flow Editor">
+Another way is to add content using the Flow Editor interface.</p>
 <p>Content Types are particular to the bots they are associated with. Here are some typical examples:</p>
 <ul>
 <li>The built-in &quot;Text&quot; defines how text is rendered (using markdown).</li>
@@ -158,6 +162,9 @@
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="translation"></a><a href="#translation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translation</h2>
+<blockquote>
+<p>Multi-lingual bots can only be created on licensed installations. For more details on licensing, see the <strong>Pro Features</strong> section.</p>
+</blockquote>
 <p>Your bots can support multiple languages. On the first interaction, the bot extracts language from the browser and saves it as a user attribute (available on the event as <code>user.language</code>). If the language extracted from the browser is not configured on the bot, it will use the default language.</p>
 <p>Please note that once the language property is set, it will never be overwritten. Therefore, it is advisable to ask the user their preferred language or use the NLU engine to detect it.</p>
 <p>When rendering content elements, we will try to render the user's configured language. If this fails, conversations will be in the bot's default language.</p>
