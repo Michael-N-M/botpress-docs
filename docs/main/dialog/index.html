@@ -59,31 +59,37 @@
 <p>The Dialog Engine uses <a href="#flows">Flows</a>, which represent the overall conversation workflow. For instance,  giving feedback on a product can be contained within a single flow.</p>
 <p>A flow is composed of <a href="#nodes">Nodes</a> which execute a series of <a href="#node-lifecycle">Instructions</a>. These instructions can be content (When a bot says something to the user like &quot;Hie&quot; or displays a Content Element) or an <a href="#actions">Action</a>  (code with a specific purpose, e.g., saving what the user said in the database).</p>
 <p>There are two sources of actions, namely:</p>
-<p>-<strong>Bespoke Actions</strong> These are actions that execute Javascript code written by the bot developer.
--<strong>Built-In Actions</strong> Botpress comes pre-configured with these actions. They are automatically installed you run Botpress.</p>
+<ul>
+<li><strong>Bespoke Actions</strong> These are actions that execute Javascript code written by the bot developer.</li>
+<li><strong>Built-In Actions</strong> Botpress comes pre-configured with these actions. They are automatically installed you run Botpress.</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="nodes"></a><a href="#nodes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nodes</h2>
 <p>Nodes are the primary units of the conversation logic of your bot. <strong>An active conversation</strong> (which we call a &quot;<strong>session</strong>&quot;) <strong>always has one and only one active node</strong> at any given time. A node generally transitions to another node or flow. So, in essence, conversations are a series of nodes and flows strung together.</p>
 <p>The conversation ends when there is no flow or node to connect to next or where the user doesn't interact with the bot for an extended period. In both instances, a message from the user will start an entirely new session.</p>
 <blockquote>
 <p>It's important to note that every bot comes with a flow named <strong>Main</strong> by default. The main flow is always the first to execute.</p>
 </blockquote>
-<p>A <em>node</em> is separated into three different stages:
-<strong>On Enter</strong> (A),
-<strong>On Receive</strong> (B) and
-<strong>Transition</strong> (C).</p>
-<p>The chatbot also executes flow-wide actions, meaning they are checked every time the bot moves to the next node.
-<strong>Flow-wide On receives</strong> (D)
-<strong>Flow-wide Transitions</strong> (E)</p>
+<p>A <em>node</em> is separated into three different stages:</p>
+<ul>
+<li><strong>On Enter</strong> (A),</li>
+<li><strong>On Receive</strong> (B) and</li>
+<li><strong>Transition</strong> (C).</li>
+</ul>
+<p>The chatbot also executes flow-wide actions, meaning they are checked every time the bot moves to the next node.</p>
+<ul>
+<li><strong>Flow-wide On receives</strong> (D)</li>
+<li><strong>Flow-wide Transitions</strong> (E)</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="node-lifecycle"></a><a href="#node-lifecycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node Lifecycle</h2>
 <p><img src="/botpress-docs/docs/assets/full-node.png" alt="Node Anatomy"></p>
 <h3><a class="anchor" aria-hidden="true" id="on-enter"></a><a href="#on-enter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On Enter</h3>
-<p><strong>onEnter</strong> is a list of instructions executed when the node is <strong>begun</strong>. If multiple instructions are defined, all of them will be executed sequentially. Instructions can be in the form of content (like text) or actions (Javascript coded instructions).</p>
+<p><strong>onEnter (labelled A)</strong> is a list of instructions executed when the node is <strong>begun</strong>. If multiple instructions are defined, all of them will be executed sequentially. Instructions can be in the form of content (like text) or actions (Javascript coded instructions).</p>
 <h3><a class="anchor" aria-hidden="true" id="on-receive"></a><a href="#on-receive" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On Receive</h3>
-<p><strong>onReceive</strong> is a list of instructions executed when an active node receives a message. If an action is defined at this stage, the node will automatically wait for user input (orange node).</p>
+<p><strong>onReceive (labelled B)</strong> is a list of instructions executed when an active node receives a message. If an action is defined at this stage, the node will automatically wait for user input (orange node).</p>
 <p>When this property is left unused, the node is non-blocking, which means it will flow straight from <code>onEnter</code> to the <code>Transitions</code>.
 <img src="/botpress-docs/docs/assets/node_blocking.png" alt="Blocking vs. Non-Blocking Nodes"></p>
 <h3><a class="anchor" aria-hidden="true" id="transitions"></a><a href="#transitions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transitions</h3>
-<p><strong>Transitions</strong> are conditions that are evaluated only after <code>onReceive</code> or <code>onEnter</code> have been executed. They define the next node or flow to be executed.</p>
+<p><strong>Transitions (labelled C)</strong> are conditions that are evaluated only after <code>onReceive</code> or <code>onEnter</code> have been executed. They define the next node or flow to be executed.</p>
 <p>A Transition always has a target that we call a Destination. The target can be:</p>
 <ul>
 <li>A different Node</li>
@@ -99,7 +105,7 @@ If there are conditions defined but none match, nothing happens, i.e., the curre
 <h3><a class="anchor" aria-hidden="true" id="flow-wide-on-receives"></a><a href="#flow-wide-on-receives" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow-wide On Receives</h3>
 <p>You can define an onReceive instruction that will <strong>always</strong> be executed before every node's onRecieve.</p>
 <blockquote>
-<p><strong>👓 Examples:</strong> Flow-wide On Receive</p>
+<p><strong>👓 Examples:</strong> Flow-wide On Receive (labelled D)</p>
 <ul>
 <li>Audit Trail: Record specific logs of messages received in the scope of this particular flow</li>
 <li>Authentication Gate: Run some authentication</li>
@@ -110,7 +116,7 @@ If there are conditions defined but none match, nothing happens, i.e., the curre
 <h3><a class="anchor" aria-hidden="true" id="flow-wide-transitions"></a><a href="#flow-wide-transitions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow-wide Transitions</h3>
 <p>A Flow-wide Transition instruction allows you to override node transitions when the condition is successful.</p>
 <blockquote>
-<p><strong>👓 Examples:</strong> Flow-wide Transitions</p>
+<p><strong>👓 Examples:</strong> Flow-wide Transitions (labelled E)</p>
 <ul>
 <li>Authentication Gate: Re-route the user to the login flow if they are not authenticated</li>
 <li>Sentiment Analysis: Re-route the user to the human fallback node if the conversation is degrading</li>
@@ -179,33 +185,33 @@ The Dialog Engine is event-based and is non-blocking by default, which means tha
 <h3><a class="anchor" aria-hidden="true" id="actions-in-action"></a><a href="#actions-in-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Actions in action</h3>
 <p>Botpress comes with a built-in set of actions. For learning purposes, we will examine the most basic action called Wait. It allows the developer to pause the bot before running the next instruction. For example, when the bot is about to present a long text message, the developer may use the <code>wait</code> action to simulate real typing.
 <img src="/botpress-docs/docs/assets/action-example.png" alt="Example of an Action"></p>
-<pre><code class="hljs">  * Wait <span class="hljs-keyword">for</span> a bit.
- *
- * <span class="hljs-meta">@title</span> Wait/Delay
- * <span class="hljs-meta">@category</span> Utility
- * <span class="hljs-meta">@author</span> Botpress, Inc.
- * <span class="hljs-meta">@param</span> {number} delay=<span class="hljs-number">1000</span> - The number of milliseconds to wait
- */
-<span class="hljs-keyword">const</span> wait = <span class="hljs-keyword">async</span> delay =&gt; {
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(resolve =&gt; setTimeout(() =&gt; resolve(), delay))
+<ul>
+<li><strong>Action Title</strong> Wait/Delay</li>
+<li><strong>Category</strong> Utility</li>
+<li><strong>Author</strong> Botpress, Inc.</li>
+<li><strong>Parameters</strong> data_type:number name:delay (default = 1000) - The number of milliseconds to wait</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> wait = <span class="hljs-keyword">async</span> delay =&gt; {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(), delay))
 }
 
 <span class="hljs-keyword">return</span> wait(args.delay || <span class="hljs-number">1000</span>)
 </code></pre>
 <p>As you can see, the action is just a simple asynchronous arrow function that takes the number of milliseconds to <code>delay</code> as a parameter. When building an action, you can (and indeed should) specify the action type, its category, the author, and parameters.</p>
 <h3><a class="anchor" aria-hidden="true" id="built-in-actions"></a><a href="#built-in-actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-In Actions</h3>
-<p>Botpress comes pre-loaded with the following actions:</p>
-<h4><a class="anchor" aria-hidden="true" id="append-context"></a><a href="#append-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Append Context</h4>
-<p>This action adds the provided context(s) to the list of contexts that will be used by the NLU Engine for subsequent messages for that chat session.</p>
+<p>Botpress comes pre-loaded with the built-in actions. Let's take a look at all the useful actions prepacked in Botpress:</p>
+<ul>
+<li><strong>Action Title</strong> Append Context</li>
+<li><strong>Category</strong> NLU</li>
+<li><strong>Author</strong> Botpress, Inc.</li>
+<li><strong>1st Parameter</strong> data_type:string name:contexts - Comma-separated list of contexts</li>
+<li><strong>2nd Parameter</strong> data_type:string name:[ttl=1] - Time-To-Live of the context in number of dialog turns. Put <code>0</code> to disable expiry.
+This action adds the provided context(s) to the list of contexts that will be used by the NLU Engine for subsequent messages for that chat session.</li>
+</ul>
 <p>The TTL (Time-To-Live) represents how long the contexts will be valid before they are automatically removed. For example, the default value of <code>1</code> will listen for that context only once (the next time the user speaks).</p>
 <p>If a context was already present in the list, the higher TTL will win.
 To force override a specific context, use the <code>removeContext</code> action before this action.</p>
 <p>This method is contextual to the current user and chat session. You can specify more than one context by separating them with a comma.</p>
-<p>@title Append Context
-@category NLU
-@author Botpress, Inc.
-@param {string} contexts - Comma-separated list of contexts
-@param {string} [ttl=1] - Time-To-Live of the context in number of dialog turns. Put <code>0</code> to disable expiry.</p>
 <h2><a class="anchor" aria-hidden="true" id="skills"></a><a href="#skills" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Skills</h2>
 <p>After building a couple of flows/bots, you'll quickly notice that there are some <strong>common patterns</strong> that you find yourself implementing over and over. Skills come to the rescue.</p>
 <p>Skills are dynamic flow generators. They can be seen as reusable components between multiple flows or even multiple bots.</p>
