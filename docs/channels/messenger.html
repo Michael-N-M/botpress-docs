@@ -55,67 +55,71 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Facebook Messenger</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
-<p>Messenger requires you to have a Facebook App and a Facebook Page to setup your chatbot connection to their platform.</p>
+<p>Messenger requires you to have a Facebook App and a Facebook Page to set up your chatbot connection to their platform.</p>
 <h3><a class="anchor" aria-hidden="true" id="messenger-module"></a><a href="#messenger-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Messenger Module</h3>
 <p>Navigate to the <code>botpress-v12_16_2-win-x64\modules</code> folder and check if the archive <code>channel-messenger.tgz</code> exists.</p>
-<h3><a class="anchor" aria-hidden="true" id="create-a-facebook-app"></a><a href="#create-a-facebook-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Facebook App</h3>
-<p>To do this first log in to your Facebook account. Please make sure that this Facebook account has admin rights for the Facebook page you desire to connect the chatbot to.</p>
-<p>Thereafter go to the <a href="https://developers.facebook.com/">Facebook developers website</a>, select &quot;My Apps&quot; from the top menu and create a new app. For more details and assistance, visit the <a href="https://developers.facebook.com/docs/development">Facebook developer documentation</a></p>
-<h3><a class="anchor" aria-hidden="true" id="create-a-facebook-page"></a><a href="#create-a-facebook-page" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Facebook Page</h3>
-<p>This step is only required if you do not already have a Facebook page to link your bot to. <a href="https://www.facebook.com/pages/creation/">Details on how to create a new Facebook page can be found here</a>.</p>
-<p>Please note that if you are linking your chatbot to a pre-existing page, you are required to have an administrator or developer role on that page. Without such a priviledge, you will be unable to to link your Facebook app to your Facebook page.</p>
-<h3><a class="anchor" aria-hidden="true" id="create-an-https-endpoint-to-your-bot"></a><a href="#create-an-https-endpoint-to-your-bot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create an HTTPS Endpoint to your bot</h3>
-<p>Facebook only integrates its apps and services to secured endpoints. This means that you are mandatorily required to create such an endpoint to your chatbot. If your chatbot already has such an endpoint you can skip this step. However, below are two tutorials to help you create an https endpoint if you do not have one.</p>
+<h3><a class="anchor" aria-hidden="true" id="facebook-app"></a><a href="#facebook-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Facebook App</h3>
+<p>To fulfill this, log in to your Facebook account. Please ensure that this Facebook account has admin rights for the Facebook page to which you desire to connect the chatbot.</p>
+<p>Thereafter go to the <a href="https://developers.facebook.com/">Facebook developers website</a>, select &quot;My Apps&quot; from the top menu, and create a new app. For more details and assistance, visit the <a href="https://developers.facebook.com/docs/development">Facebook developer documentation</a></p>
+<h3><a class="anchor" aria-hidden="true" id="facebook-page"></a><a href="#facebook-page" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Facebook Page</h3>
+<p>This step is only required if you do not already have a Facebook page to link your bot. <a href="https://www.facebook.com/pages/creation/">You can find details on how to create a new Facebook page here</a>.</p>
+<p>Please note that if you link your chatbot to a pre-existing page, you must have an administrator or developer role on that page. Without such a privilege, you will be unable to link your Facebook app to your Facebook page.</p>
+<h3><a class="anchor" aria-hidden="true" id="https-endpoint-to-your-bot"></a><a href="#https-endpoint-to-your-bot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTPS Endpoint to your bot</h3>
+<p>Facebook only integrates its apps and services to secured endpoints. This means that you are mandatorily required to create such an endpoint to your chatbot. If your chatbot already has such an endpoint, you can skip this step. However, below are two tutorials to help you create an HTTPS endpoint if you do not have one.</p>
 <ul>
-<li>Create an HTTPS tunnel to your machine using Ngrok. This tutorial works on pretty much any Operting System. <a href="https://api.slack.com/tutorials/tunneling-with-ngrok"><strong>Tutorial</strong></a></li>
+<li>Create an HTTPS tunnel to your machine using Ngrok. This tutorial works on pretty much any Operating System. <a href="https://api.slack.com/tutorials/tunneling-with-ngrok"><strong>Tutorial</strong></a></li>
 <li>Using Nginx and Let's Encrypt. This tutorial is based on the Linux Ubuntu 16.04 Operating System. <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04"><strong>Tutorial</strong></a></li>
 <li>Use Serveo to create an HTTPS tunnel to your machine. <a href="https://medium.com/automationmaster/how-to-forward-my-local-port-to-public-using-serveo-4979f352a3bf"><strong>Tutorial</strong></a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="setup"></a><a href="#setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup</h2>
 <h3><a class="anchor" aria-hidden="true" id="enable-the-messenger-channel"></a><a href="#enable-the-messenger-channel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable the Messenger Channel</h3>
 <p>You can do this by opening the file <code>data/global/botpress.config.json</code> in a text editor and setting the value to <code>true</code> as below.</p>
-<pre><code class="hljs css language-js"><span class="hljs-string">"modules"</span>: [
-  ...
-    {
-      <span class="hljs-string">"location"</span>: <span class="hljs-string">"MODULES_ROOT/channel-messenger"</span>,
+<p>&quot;`js
+&quot;modules&quot;: [
+...
+{
+&quot;location&quot;: &quot;MODULES_ROOT/channel-messenger&quot;,
+&quot;enabled&quot;: true
+},</p>
+<pre><code class="hljs">
+<span class="hljs-comment">### Get App Secret &amp; Verify Token</span>
+
+<span class="hljs-comment">#### App Secret</span>
+- Go to your Facebook App
+- In the left sidebar, expand the Settings menu and <span class="hljs-keyword">select</span> Basic. Here you can find the App <span class="hljs-keyword">ID</span> <span class="hljs-keyword">and</span>  App Secret.
+- Click <span class="hljs-keyword">on</span> the <span class="hljs-string">"Show"</span> button <span class="hljs-keyword">in</span> the <span class="hljs-string">"App Secret"</span> <span class="hljs-built_in">text</span> box. You can copy the <span class="hljs-string">"App Id"</span> <span class="hljs-keyword">and</span> <span class="hljs-string">"App Secret"</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">use</span> <span class="hljs-keyword">for</span> your Facebook API calls.
+
+<span class="hljs-comment">#### Verify Token</span>
+You can <span class="hljs-keyword">set</span> a <span class="hljs-keyword">long</span> <span class="hljs-keyword">string</span> <span class="hljs-keyword">of</span> your own making <span class="hljs-keyword">as</span> a <span class="hljs-keyword">verify</span> token <span class="hljs-keyword">or</span> <span class="hljs-keyword">use</span> a random <span class="hljs-keyword">string</span> generator service <span class="hljs-keyword">like</span> random.org <span class="hljs-keyword">to</span> <span class="hljs-keyword">create</span> a <span class="hljs-keyword">verify</span> token.
+
+<span class="hljs-comment">## Configurations</span>
+The <span class="hljs-keyword">following</span> configurations <span class="hljs-keyword">are</span> <span class="hljs-keyword">required</span> <span class="hljs-keyword">for</span> the <span class="hljs-keyword">connection</span> <span class="hljs-keyword">to</span> be established <span class="hljs-keyword">to</span> <span class="hljs-keyword">enable</span> you <span class="hljs-keyword">to</span> <span class="hljs-keyword">access</span> your chatbot <span class="hljs-keyword">from</span> your Facebook page. 
+
+<span class="hljs-keyword">While</span> the <span class="hljs-keyword">first</span> three <span class="hljs-keyword">are</span> mandatory, the <span class="hljs-keyword">last</span> three configurations (greeting <span class="hljs-built_in">text</span>, <span class="hljs-keyword">get</span> started, <span class="hljs-keyword">and</span> persistent menu) <span class="hljs-keyword">are</span> not.
+
+
+<span class="hljs-comment">### Botpress HTTPS Endpoint </span>
+- <span class="hljs-keyword">Head</span> <span class="hljs-keyword">over</span> <span class="hljs-keyword">to</span> <span class="hljs-string">`data/global/config/channel-messenger.json`</span>. <span class="hljs-keyword">If</span> it doesn<span class="hljs-string">'t exist, restart Botpress Server.
+
+- Set the following properties:
+  - `appSecret`. You will find this value on your Facebook App page.
+  - `verifyToken`. This is a random string you need to generate and keep secret. You'</span>ll need <span class="hljs-keyword">to</span> copy/paste this token <span class="hljs-keyword">in</span> the Facebook App portal <span class="hljs-keyword">when</span> setting up your webhook.
+
+- Make sure you have an HTTPS <span class="hljs-keyword">URL</span> pointing <span class="hljs-keyword">to</span> your Botpress <span class="hljs-keyword">Server</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">set</span> the <span class="hljs-string">`EXTERNAL_URL'environment variable as follows:
+  - Open `</span><span class="hljs-keyword">data</span>/<span class="hljs-keyword">global</span>/botpress.config.json<span class="hljs-string">` and set the value of the `</span>
+httpServer.externalUrl<span class="hljs-string">` configuration variable to the complete hostname of your HTTPS endpoint, for example, `</span>https://bot.botpress.com<span class="hljs-string">`. The resulting file should be as below:
+"`</span><span class="hljs-keyword">json</span>
+  {
+  <span class="hljs-string">"$schema"</span>: <span class="hljs-string">"../botpress.config.schema.json"</span>,
+  <span class="hljs-string">"httpServer"</span>: {
+    <span class="hljs-string">"host"</span>: <span class="hljs-string">"localhost"</span>,
+    <span class="hljs-string">"port"</span>: <span class="hljs-number">3000</span>,
+    <span class="hljs-string">"backlog"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">"bodyLimit"</span>: <span class="hljs-string">"10mb"</span>,
+    <span class="hljs-string">"cors"</span>: {
       <span class="hljs-string">"enabled"</span>: <span class="hljs-literal">true</span>
     },
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="get-app-secret--verify-token"></a><a href="#get-app-secret--verify-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get App Secret &amp; Verify Token</h3>
-<h4><a class="anchor" aria-hidden="true" id="app-secret"></a><a href="#app-secret" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App Secret</h4>
-<ul>
-<li>Go to your Facebook App</li>
-<li>In the left side bar, expand the Settings menu and select Basic. Here you can find the App ID and  App Secret.</li>
-<li>Click on the “Show” button in the “App Secret” text box. You can copy the “App Id” and “App Secret” which you can use for your Facebook API calls.</li>
-</ul>
-<h4><a class="anchor" aria-hidden="true" id="verify-token"></a><a href="#verify-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verify Token</h4>
-<p>You can set a long string of your own making as a verify token or use a random string generator service like random.org to create a veriify token.</p>
-<h2><a class="anchor" aria-hidden="true" id="configurations"></a><a href="#configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configurations</h2>
-<p>The following configrations are required for the connection to be established to enable you to access your chatbot from your Facebook page.</p>
-<h3><a class="anchor" aria-hidden="true" id="botpress-https-endpoint"></a><a href="#botpress-https-endpoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Botpress HTTPS Endpoint</h3>
-<ul>
-<li><p>Head over to <code>data/global/config/channel-messenger.json</code>. If it doesn't exist, restart Botpress Server.</p></li>
-<li><p>Set the following properties:</p>
-<ul>
-<li><code>appSecret</code>. You will find this value in your Facebook App page.</li>
-<li><code>verifyToken</code>. This is a random string you need to generate and keep secret. You'll need to copy/paste this token in the Facebook App portal when setting up your webhook.</li>
-</ul></li>
-<li><p>Make sure you have an HTTPS url pointing to your Botpress Server and set the <code>EXTERNAL_URL</code>environment variable as follows:</p>
-<ul>
-<li>Open <code>data/global/botpress.config.json</code> and set the value of the <code>httpServer.externalUrl</code> configuration variable to the complete host name of your https endpoint, for example <code>https://bot.botpress.com</code>. The resulting file should be as below:</li>
-</ul></li>
-</ul>
-<pre><code class="hljs css language-json">  {
-  <span class="hljs-attr">"$schema"</span>: <span class="hljs-string">"../botpress.config.schema.json"</span>,
-  <span class="hljs-attr">"httpServer"</span>: {
-    <span class="hljs-attr">"host"</span>: <span class="hljs-string">"localhost"</span>,
-    <span class="hljs-attr">"port"</span>: <span class="hljs-number">3000</span>,
-    <span class="hljs-attr">"backlog"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"bodyLimit"</span>: <span class="hljs-string">"10mb"</span>,
-    <span class="hljs-attr">"cors"</span>: {
-      <span class="hljs-attr">"enabled"</span>: <span class="hljs-literal">true</span>
-    },
-    <span class="hljs-attr">"externalUrl"</span>: <span class="hljs-string">"https://bot.botpress.com"</span>,
+    <span class="hljs-string">"externalUrl"</span>: <span class="hljs-string">"https://bot.botpress.com"</span>,
 </code></pre>
 <pre><code class="hljs">- Restart Botpress Server to reload the configuration
 </code></pre>
@@ -124,45 +128,49 @@
 <blockquote>
 <p><strong>Important:</strong> One bot is connected to <strong>one</strong> facebook page.</p>
 </blockquote>
-<p>You will need to setup the following properties:</p>
+<p>You will need to set up the following properties:</p>
 <ul>
 <li><code>accessToken</code> has to be set to your <a href="https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup">Page Access Token</a>. <a href="https://developers.facebook.com/docs/facebook-login/access-tokens#pagetokens">Official Reference</a></li>
 <li><code>enabled</code> has to be set to <code>true</code></li>
-<li><code>appSecret</code>. You will find this value in your Facebook App page.</li>
+<li><code>appSecret</code>. You will find this value on your Facebook App page.</li>
 <li><code>verifyToken</code>. This is a random string you need to generate and keep secret. You'll need to copy/paste this token in the Facebook App portal when setting up your webhook.</li>
-<li>Make sure you have an HTTPS url pointing to your Botpress Server and set the <a href="../advanced/configuration#exposing-your-bot-on-the-internet"><code>EXTERNAL_URL</code></a> environment variable</li>
+<li>Make sure you have an HTTPS URL pointing to your Botpress Server and set the <a href="../advanced/configuration#exposing-your-bot-on-the-internet"><code>EXTERNAL_URL</code></a> environment variable</li>
 <li>Restart Botpress Server to reload the configuration</li>
 </ul>
 <p>Read the <a href="https://github.com/botpress/botpress/blob/master/modules/channel-messenger/src/config.ts">config definition file</a> to learn more about configurations.</p>
 <blockquote>
-<p>All changes to the configuration will take effect on <code>onBotMount</code>. To refresh the configuration at runtime, you can disable and enable the bot again without having to restart the server.</p>
+<p>All changes to the configuration will take effect on <code>onBotMount</code>. To refresh the configuration at runtime, you can disable and enable the bot again without restarting the server.</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="facebook-webhook"></a><a href="#facebook-webhook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Facebook Webhook</h3>
-<p>Messenger will use a webhook that you'll need register in order to communicate with your bot.</p>
+<p>Messenger will use a webhook that you'll need to register to communicate with your bot.</p>
 <ol>
 <li>In your Facebook app, go to Products &gt; Messenger &gt; Settings &gt; Webhooks &gt; Setup Webhooks</li>
-<li>Under Callback URL, enter your secured public url and make sure to point to the <code>/webhook</code> endpoint.</li>
-<li>Paste your verifyToken (the random string that you generated) in the Verify Token field.</li>
+<li>Under Callback URL, enter your secured public URL and make sure to point to the <code>/webhook</code> endpoint.</li>
+<li>Paste your <code>verifyToken</code> (the random string you generated) in the Verify Token field.</li>
 <li>Make sure <code>messages</code> and <code>messaging_postbacks</code> are checked in Subscription Fields.</li>
 </ol>
 <blockquote>
-<p><strong>⭐ Note</strong>: When you setup your webhook, Messenger requires a <strong>secured public</strong> address. To test on localhost, we recommend using services like <a href="https://pagekite.net/">pagekite</a>, <a href="https://ngrok.com">ngrok</a> or <a href="https://localtunnel.github.io/www/">tunnelme</a> to expose your server.</p>
+<p><strong>⭐ Note</strong>: When you set up your webhook, Messenger requires a <strong>secured public</strong> address. To test on localhost, we recommend using services like <a href="https://pagekite.net/">pagekite</a>, <a href="https://ngrok.com">ngrok</a> or <a href="https://localtunnel.github.io/www/">tunnelme</a> to expose your server.</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="greeting-text"></a><a href="#greeting-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Greeting Text</h3>
-<pre><code class="hljs css language-json">"greeting": "Hello, I'm your bot!"
-</code></pre>
-<p>The greeting property of your bot's Messenger profile allows you to specify the greeting message people will see on the welcome screen of your bot. The welcome screen is displayed for people interacting with your bot for the first time.</p>
-<p>Read more about <a href="https://developers.facebook.com/docs/messenger-platform/reference/messenger-profile-api/greeting">greeting</a>.</p>
-<h3><a class="anchor" aria-hidden="true" id="get-started"></a><a href="#get-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Started</h3>
-<pre><code class="hljs css language-json">"getStarted": "&lt;GET_STARTED_PAYLOAD&gt;"
-</code></pre>
+<p>&quot;`json
+&quot;greeting&quot;: &quot;Hello, I'm your bot!&quot;</p>
+<pre><code class="hljs">
+Your bot's Messenger profile's greeting property allows you to specify the greeting message people will see on your bot's welcome screen. The welcome screen is displayed for people interacting with your bot for the first time.
+
+Read more about [<span class="hljs-string">greeting</span>](<span class="hljs-link">https://developers.facebook.com/docs/messenger-platform/reference/messenger-profile-api/greeting</span>).
+
+<span class="hljs-section">### Get Started</span>
+<span class="hljs-code">```json
+"getStarted": "&lt;GET_STARTED_PAYLOAD&gt;"
+</span></code></pre>
 <p>The Get Started button will allow you to send a pro-active message once it is clicked on the Facebook Messenger chat interface. The Page Messenger welcome screen displays this Get Started button. When this button is tapped, the Messenger Platform will send a messaging_postbacks event to your webhook. Pages that add the button may also configure their greeting text.</p>
 <p>Read more about <a href="https://developers.facebook.com/docs/messenger-platform/reference/messenger-profile-api/get-started-button">get started</a>.</p>
 <h3><a class="anchor" aria-hidden="true" id="persistent-menu"></a><a href="#persistent-menu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Persistent Menu</h3>
-<p>The persistent menu allows you to have an always-on user interface element inside Messenger conversations. This is an easy way to help people discover and access the core functionality of your Messenger bot at any point in the conversation</p>
+<p>The persistent menu allows you to have an always-on user interface element inside Messenger conversations. This is an easy way to help people discover and access your Messenger bot's core functionality at any point in the conversation.</p>
 <p>Read more about persistent menu <a href="https://developers.facebook.com/docs/messenger-platform/send-messages/persistent-menu">here</a>.</p>
 <blockquote>
-<p>The persistent menu is cached locally on the user's client, but updates are fetched periodically. If you change the persistent menu, it can take some time for the menu to update. You can force refresh by deleting the conversation and starting a new one.</p>
+<p>The persistent menu is cached locally on the user's client, but updates are fetched periodically. If you change the persistent menu, it can take some time for the menu to update. You can force a refresh by deleting the conversation and starting a new one.</p>
 </blockquote>
 <p><strong>Persistent Menu object example</strong>:</p>
 <pre><code class="hljs css language-json"> "persistentMenu": [
@@ -191,14 +199,26 @@
   ]
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="configuration-example"></a><a href="#configuration-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Example</h2>
-<p>Below is a configuration example showing how your <code>channel-messenger.json</code> may look after complete configuration (excluding the persistent menu object)</p>
-<pre><code class="hljs css language-json">{
-  <span class="hljs-attr">"$schema"</span>: <span class="hljs-string">"../../assets/modules/channel-messenger/config.schema.json"</span>,
-  <span class="hljs-attr">"enabled"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"appSecret"</span>: <span class="hljs-string">"5d789e4cvmlbvfbflb3efd68407d97942ecbf4fc0af"</span>,
-  <span class="hljs-attr">"verifyToken"</span>: <span class="hljs-string">"KjhkjyHAusOPOYYGIijoijpoij"</span>,
-  <span class="hljs-attr">"persistentMenu"</span>: [],
-  <span class="hljs-attr">"chatUserAuthDuration"</span>: <span class="hljs-string">"24h"</span>
-}
+<p>Below is a configuration example showing how your <code>channel-messenger.json</code> may look after complete configuration in <code>botpress-vxx\data\global\config</code></p>
+<p>&quot;`json
+{
+&quot;$schema&quot;: &quot;../../assets/modules/channel-messenger/config.schema.json&quot;,
+&quot;enabled&quot;: false,
+&quot;appSecret&quot;: &quot;5d789e4cvmlbvfbflb3efd68407d97942ecbf4fc0af&quot;,
+&quot;verifyToken&quot;: &quot;KjhkjyHAusOPOYYGIijoijpoij&quot;,
+&quot;persistentMenu&quot;: [],
+&quot;chatUserAuthDuration&quot;: &quot;24h&quot;
+}</p>
+<pre><code class="hljs">
+You will also  need <span class="hljs-built_in">to</span> <span class="hljs-built_in">add</span> <span class="hljs-keyword">a</span> configuration <span class="hljs-built_in">file</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">directory</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> chatbot you wish <span class="hljs-built_in">to</span> connect <span class="hljs-built_in">to</span> Messenger `botpress-vxx\data\bots\&lt;your_bot&gt;\config`
+
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/channels/web"><span class="arrow-prev">← </span><span>Website Embedding</span></a><a class="docs-next button" href="/botpress-docs/docs/channels/telegram"><span>Telegram</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a><ul class="toc-headings"><li><a href="#messenger-module">Messenger Module</a></li><li><a href="#create-a-facebook-app">Create a Facebook App</a></li><li><a href="#create-a-facebook-page">Create a Facebook Page</a></li><li><a href="#create-an-https-endpoint-to-your-bot">Create an HTTPS Endpoint to your bot</a></li></ul></li><li><a href="#setup">Setup</a><ul class="toc-headings"><li><a href="#enable-the-messenger-channel">Enable the Messenger Channel</a></li><li><a href="#get-app-secret--verify-token">Get App Secret &amp; Verify Token</a></li></ul></li><li><a href="#configurations">Configurations</a><ul class="toc-headings"><li><a href="#botpress-https-endpoint">Botpress HTTPS Endpoint</a></li><li><a href="#individual-chatbot-configuration">Individual Chatbot Configuration</a></li><li><a href="#facebook-webhook">Facebook Webhook</a></li><li><a href="#greeting-text">Greeting Text</a></li><li><a href="#get-started">Get Started</a></li><li><a href="#persistent-menu">Persistent Menu</a></li></ul></li><li><a href="#configuration-example">Configuration Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
+<p>{
+&quot;$schema&quot;: &quot;../../assets/modules/channel-web/config.schema.json&quot;,
+&quot;showBotInfoPage&quot;: true,
+&quot;infoPage&quot;: {
+&quot;enabled&quot;: true
+},
+}</p>
+<pre><code class="hljs"></code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/channels/web"><span class="arrow-prev">← </span><span>Website Embedding</span></a><a class="docs-next button" href="/botpress-docs/docs/channels/telegram"><span>Telegram</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a><ul class="toc-headings"><li><a href="#messenger-module">Messenger Module</a></li><li><a href="#facebook-app">Facebook App</a></li><li><a href="#facebook-page">Facebook Page</a></li><li><a href="#https-endpoint-to-your-bot">HTTPS Endpoint to your bot</a></li></ul></li><li><a href="#setup">Setup</a><ul class="toc-headings"><li><a href="#enable-the-messenger-channel">Enable the Messenger Channel</a></li><li><a href="#individual-chatbot-configuration">Individual Chatbot Configuration</a></li><li><a href="#facebook-webhook">Facebook Webhook</a></li><li><a href="#greeting-text">Greeting Text</a></li><li><a href="#persistent-menu">Persistent Menu</a></li></ul></li><li><a href="#configuration-example">Configuration Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
