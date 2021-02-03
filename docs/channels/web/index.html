@@ -55,17 +55,19 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Website Embedding</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="embedding"></a><a href="#embedding" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedding</h2>
-<p>Embedding a bot to your existing site is quite straightforward. You will need to deploy your bot to a server or hosting provider and make it accessible via a URL. You will then be able to add the following script tag to the end of your <code>index.html</code> page.</p>
-<p>NB: Remember to replace &lt;your-url-here&gt; with the URL of your bot!</p>
+<p>Embedding a chatbot to a website is relatively straightforward. As long as your chatbot is hosted on a physical or virtual server and is accessible via a URL, you can connect and embed it to a website. Add the following script tag to the end of your <code>index.html</code> (or the default webpage, whichever it's named).</p>
+<blockquote>
+<p>Remember to replace <code>&lt;your-url-here&gt;</code> with the URL of your bot!</p>
+</blockquote>
 <pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"&lt;your-url-here&gt;/assets/modules/channel-web/inject.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<p>After the import script above you need to initialize the bot to the <code>window</code> object with the script below.</p>
+<p>After the import script above, you need to locate and use the chatbot by initializing it to the <code>window</code> object:</p>
 <pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   <span class="hljs-built_in">window</span>.botpressWebChat.init({ <span class="hljs-attr">host</span>: <span class="hljs-string">'&lt;your-url-here&gt;'</span>, <span class="hljs-attr">botId</span>: <span class="hljs-string">'&lt;your-bot-id&gt;'</span> })
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<p>And that's it! Once you deploy the changes to your website, the bot will become available, and its button will appear.</p>
-<p>There is an example included in the default botpress installation at <code>http://localhost:3000/assets/modules/channel-web/examples/embedded-webchat.html</code></p>
+<p>That's it! Once you add these changes and save them to your website, the bot will become available, and its button will appear on your site the next time you browse it.</p>
+<p>There is an example in the default botpress installation at <code>http://localhost:3000/assets/modules/channel-web/examples/embedded-webchat.html</code></p>
 <h3><a class="anchor" aria-hidden="true" id="additional-options"></a><a href="#additional-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Additional Options</h3>
 <table>
 <thead>
@@ -76,7 +78,7 @@
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="bot-information-page"></a><a href="#bot-information-page" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bot Information page</h2>
-<p>The information page displays information like the website url, a phone number, an e-mail contact address, and links to terms of services and privacy policies. You can also include a cover picture and an avatar for your bot.</p>
+<p>The information page displays information like the website URL, a phone number, an e-mail contact address, and links to terms of services and privacy policies. You can also include a cover picture and an avatar for your bot.</p>
 <p><img src="/botpress-docs/docs/assets/webchat-bot-info.png" alt="Bot Info Page"></p>
 <p>How to set up the information page:</p>
 <ol>
@@ -87,15 +89,15 @@
 </ol>
 <p>You will see the page when starting a new conversation. The page is always accessible by clicking on the information icon in the top right corner of the chat window.</p>
 <blockquote>
-<p><strong>**</strong> We edited the <code>global</code> configuration file for the sake of simplicity. To enable the bot information page on a single bot, you will need to copy the file <code>data/global/config/channel-web.json</code> to your bot folder <code>data/bots/BOT_NAME/config/channel-web.json</code> and edit that file.</p>
+<p><strong>**</strong> We edited the <code>global</code> configuration file for the sake of simplicity. To enable the bot information page on a single bot, visit that bot's studio UI and select <strong>config</strong> (the last icon on the left-side menu with a cog).</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="show-and-hide-automatically"></a><a href="#show-and-hide-automatically" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show and hide automatically</h2>
-<p>If the default Botpress button doesn't work for you, it can be changed by adding a <code>click</code> event listener to any element on the page. You will also need to pass the <code>hideWidget</code> key to your <code>init</code> function like this:</p>
+<p>If the default Botpress button doesn't work for you, pass the <code>hideWidget</code> key to your <code>init</code> function. By so doing, the default chat button will not show up on your website.</p>
 <pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   <span class="hljs-built_in">window</span>.botpressWebChat.init({ <span class="hljs-attr">host</span>: <span class="hljs-string">'&lt;your-url-here&gt;'</span>, <span class="hljs-attr">botId</span>: <span class="hljs-string">'&lt;your-bot-id&gt;'</span>, <span class="hljs-attr">hideWidget</span>: <span class="hljs-literal">true</span> })
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<p>Here is some sample code for adding the event listeners to your custom elements:</p>
+<p>You can then add a <code>click</code> event listener to any element on your web page. Below is a code sample showing how to add event listeners to your custom elements.</p>
 <pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'show-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
     <span class="hljs-built_in">window</span>.botpressWebChat.sendEvent({ <span class="hljs-attr">type</span>: <span class="hljs-string">'show'</span> })
@@ -106,42 +108,73 @@
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="others-events"></a><a href="#others-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Others events</h2>
-<p>There are more events you can trigger by calling the <code>window.botpressWebChat.sendEvent()</code> function.</p>
+<h2><a class="anchor" aria-hidden="true" id="events-available"></a><a href="#events-available" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Events Available</h2>
+<h3><a class="anchor" aria-hidden="true" id="obtaining-visitors-user-id"></a><a href="#obtaining-visitors-user-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Obtaining visitor's User ID</h3>
+<p>The most widely used object property under events is <code>userId</code>. It fetches the current visitor ID to either save it in your database or update some Botpress DB attributes.</p>
+<p>Since the webchat is running in an iframe, posting messages can achieve communication between frames. The chat will dispatch an event when a user id is set. You can listen for this event on your page.</p>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'message'</span>, message =&gt; {
+  <span class="hljs-keyword">if</span> (message.data.userId) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`The User ID is `</span> + message.data.userId)
+    <span class="hljs-comment">//Add code to use the user ID here</span>
+  }
+})
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="other-events"></a><a href="#other-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other Events</h3>
+<p>There are more events you can trigger by calling the <code>window.botpressWebChat.sendEvent()</code> function. Below are some of them:</p>
 <table>
 <thead>
 <tr><th>name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>show</code></td><td>This event open the webchat</td></tr>
-<tr><td><code>hide</code></td><td>This event close the webchat</td></tr>
+<tr><td><code>show</code></td><td>This event opens the webchat</td></tr>
+<tr><td><code>hide</code></td><td>This event closes the webchat</td></tr>
 <tr><td><code>toggle</code></td><td>This event open or close the webchat depends on its current state</td></tr>
-<tr><td><code>message</code></td><td>This event send a message (see example above)</td></tr>
+<tr><td><code>message</code></td><td>This event sends a message (see example above)</td></tr>
 <tr><td><code>toggleBotInfo</code></td><td>This event switches between bot infos and conversation page</td></tr>
 </tbody>
 </table>
-<h2><a class="anchor" aria-hidden="true" id="obtaining-the-user-id-of-your-visitor"></a><a href="#obtaining-the-user-id-of-your-visitor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Obtaining the User ID of your visitor</h2>
-<p>It may be useful to fetch the current visitor ID to either save it in your database or to update some attributes in the Botpress DB.</p>
-<p>Since the webchat is running in an iframe, communication between frames is done by posting messages.
-The chat will dispatch an event when the user id is set, which you can listen for on your own page.</p>
-<pre><code class="hljs css language-js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'message'</span>, message =&gt; {
-  <span class="hljs-keyword">if</span> (message.data.userId) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`The User ID is `</span> + message.data.userId)
-  }
-})
+<h4><a class="anchor" aria-hidden="true" id="show"></a><a href="#show" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show</h4>
+<p>The following function shows the chat window when you click the <code>show-bp</code> element.</p>
+<pre><code class="hljs css language-js">      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'show-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.botpressWebChat.sendEvent({ <span class="hljs-attr">type</span>: <span class="hljs-string">'show'</span> })
+      })
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="configure-at-runtime"></a><a href="#configure-at-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure at runtime</h2>
-<p>The method <code>window.botpressWebChat.configure</code> allows you to change the configuration of the chat during a conversation without having to reload the page.</p>
+<h4><a class="anchor" aria-hidden="true" id="hide"></a><a href="#hide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hide</h4>
+<p>The following function hides the chat window when you click the <code>hide-bp</code> element.</p>
+<pre><code class="hljs css language-js">      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hide-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.botpressWebChat.sendEvent({ <span class="hljs-attr">type</span>: <span class="hljs-string">'hide'</span> })
+      })
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="toggle"></a><a href="#toggle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Toggle</h4>
+<p>The following function includes a ternary operator that toggles the chat to either be hidden or shown when you click the <code>toggle-bp</code> element.</p>
+<pre><code class="hljs css language-js">      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'toggle-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.botpressWebChat.sendEvent({ <span class="hljs-attr">type</span>: webchatOpen ? <span class="hljs-string">'hide'</span> : <span class="hljs-string">'show'</span> })
+      })
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="message"></a><a href="#message" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Message</h4>
+<p>The following function lets you programmatically send a message to the user when you click the <code>send-message-bp</code> element.</p>
+<pre><code class="hljs css language-js">      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'send-message-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.botpressWebChat.sendEvent({ <span class="hljs-attr">type</span>: <span class="hljs-string">'message'</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Hello!'</span> })
+      })
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="runtime-configurations"></a><a href="#runtime-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Runtime configurations</h2>
+<p>The method <code>window.botpressWebChat.configure</code> allows you to change the chat's configuration during a conversation without having to reload the page.</p>
+<p>The example below shows how you can change the chatbot's language to French when you click <code>change-lang-bp</code> on your website.</p>
+<pre><code class="hljs css language-js">      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'change-lang-bp'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        lastConfig.locale = <span class="hljs-string">'fr'</span>
+        <span class="hljs-built_in">window</span>.botpressWebChat.configure(lastConfig)
+      })
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="advanced-customization"></a><a href="#advanced-customization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Customization</h2>
-<p>Every message sent by the bot to a user consist of a <code>payload</code>. That payload has a <code>type</code> property, that tells the webchat how the other information included on that payload should be rendered on screen.</p>
+<p>All messages which the bot sends to a user consist of a <code>payload</code>. That payload has a <code>type</code> property that tells the webchat how the other information included on that payload should be rendered on screen.</p>
 <p>There are different ways to send that payload to the user:</p>
 <ul>
 <li>Sending a Content Element via the Flow Editor <a href="https://github.com/botpress/botpress/blob/master/modules/builtin/src/content-types/image.js">example here</a></li>
-<li>Sending an event via Hooks or Actions <a href="https://github.com/botpress/botpress/blob/master/examples/custom-component/src/hooks/after_incoming_middleware/sendoptions.js">example here</a></li>
+<li>Sending an event via Hooks or Actions (<a href="https://github.com/botpress/botpress/blob/master/examples/custom-component/src/hooks/after_incoming_middleware/sendoptions.js">https://github.com/botpress/botpress/blob/master/examples/custom-component/src/hooks/after_incoming_middleware/sendoptions.js</a>)</li>
 </ul>
-<p>There are multiple types already built in Botpress (they are listed at the bottom of this page), but if you require more advanced components, you can create them easily.</p>
+<p>There are multiple types already built-in Botpress (these are listed at the bottom of this page), but you can create them easily if you require more advanced components.</p>
 <h3><a class="anchor" aria-hidden="true" id="prevent-storing-sensitive-information"></a><a href="#prevent-storing-sensitive-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prevent storing sensitive information</h3>
-<p>By default, the complete payload is stored in the database, so the information is not lost when the user refreshes the page. On some occasion, however, we may want to hide some properties deemed &quot;sensitive&quot; (ex: password, credit card, etc..).</p>
+<p>By default, the complete payload is stored in the database, so the information is not lost when the user refreshes the page. However, on some occasions, we may want to hide some properties deemed &quot;sensitive&quot; (ex: password, credit card, etc..).</p>
 <p>To remove this information, there is a special property that you need to set: <code>sensitive</code>. Here's an example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> payload = {
   <span class="hljs-attr">type</span>: <span class="hljs-string">'login_prompt'</span>,
@@ -153,40 +186,44 @@ The chat will dispatch an event when the user id is set, which you can listen fo
 <span class="hljs-comment">// This is the information that will be persisted: { type: 'login_prompt', username: 'someuser' }</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="changing-avatar-for-messages"></a><a href="#changing-avatar-for-messages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changing avatar for messages</h3>
-<p>If you need to display different bot's avatar for some of the messages (like imitating changing author) you can achieve that by setting <code>botAvatarUrl</code> like this:</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> payload = {
-  <span class="hljs-attr">type</span>: <span class="hljs-string">'text'</span>,
-  <span class="hljs-attr">botAvatarUrl</span>: <span class="hljs-string">'http://some.url'</span>
-  <span class="hljs-attr">text</span>: <span class="hljs-string">'Lorem ipsum'</span>
+<p>If you need to display a different bot's avatar for some of the messages (like imitating changing author), you can achieve that by setting <code>botAvatarUrl</code> like this:</p>
+<p>&quot;`js
+const payload = {
+type: 'text',
+botAvatarUrl: '<a href="http://some.url">http://some.url</a>'
+text: 'Lorem ipsum'
+}</p>
+<pre><code class="hljs">
+<span class="hljs-section">## Creating a Custom Component</span>
+
+We already have an [<span class="hljs-string">example module</span>](<span class="hljs-link">https://github.com/botpress/botpress/tree/master/examples/custom-component</span>) showing how to create them. We will make a quick recap here. The Debugger is implemented entirely as a custom component in the [<span class="hljs-string">extensions module</span>](<span class="hljs-link">https://github.com/botpress/botpress/tree/master/modules/extensions/src/views/lite/components/debugger</span>), so don't hesitate to take a look at how it was implemented there.
+
+Custom components leverage the <span class="hljs-code">`custom`</span> payload type, which allows you to inject any valid React component exported from a custom module.
+<span class="hljs-bullet">
+1. </span>Create a module (we have [<span class="hljs-string">example templates here</span>](<span class="hljs-link">https://github.com/botpress/botpress/tree/master/examples/module-templates</span>))
+<span class="hljs-bullet">2. </span>Develop your component
+<span class="hljs-bullet">3. </span>Export your component in the <span class="hljs-code">`lite.jsx`</span> file ([<span class="hljs-string">here's a couple of different ways to do it</span>](<span class="hljs-link">https://github.com/botpress/botpress/blob/master/examples/custom-component/src/views/lite/index.jsx</span>))
+<span class="hljs-bullet">4. </span>Send a custom payload to the user:
+
+"`js
+payload: {
+  type: 'custom' // Important, this is how the magic operates
+  module: 'myModule'// The name of your module, must match the one in package.json
+  component: 'YourComponent'// This is the name of the component, exported from lite.jsx
+  // Feel free to add any other properties here, they will all be passed down to your component
+  myCustomProp1: 'somemorestuff'
+  someOtherProperty: 'anything'
 }
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="creating-a-custom-component"></a><a href="#creating-a-custom-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Custom Component</h2>
-<p>We already have an <a href="https://github.com/botpress/botpress/tree/master/examples/custom-component">example module</a> showing how to create them, so we will just make a quick recap here. The Debugger is also implemented entirely as a custom component in the <a href="https://github.com/botpress/botpress/tree/master/modules/extensions/src/views/lite/components/debugger">extensions module</a>, so don't hesitate to take a look on how it was implemented.</p>
-<p>Custom components leverages the <code>custom</code> payload type, which allows you to inject any valid React component exported from a custom module.</p>
-<ol>
-<li>Create a module (we have <a href="https://github.com/botpress/botpress/tree/master/examples/module-templates">example templates here</a>)</li>
-<li>Develop your component</li>
-<li>Export your component in the <code>lite.jsx</code> file (<a href="https://github.com/botpress/botpress/blob/master/examples/custom-component/src/views/lite/index.jsx">here's a couple of different ways to do it</a>)</li>
-<li>Send a custom payload to the user:</li>
-</ol>
-<pre><code class="hljs css language-js">payload: {
-  <span class="hljs-attr">type</span>: <span class="hljs-string">'custom'</span> <span class="hljs-comment">// Important, this is how the magic operates</span>
-  <span class="hljs-attr">module</span>: <span class="hljs-string">'myModule'</span> <span class="hljs-comment">// The name of your module, must match the one in package.json</span>
-  <span class="hljs-attr">component</span>: <span class="hljs-string">'YourComponent'</span> <span class="hljs-comment">// This is the name of the component, exported from lite.jsx</span>
-  <span class="hljs-comment">// Feel free to add any other properties here, they will all be passed down to your component</span>
-  <span class="hljs-attr">myCustomProp1</span>: <span class="hljs-string">'somemorestuff'</span>
-  <span class="hljs-attr">someOtherProperty</span>: <span class="hljs-string">'anything'</span>
-}
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="what-can-i-do-in-my-component-"></a><a href="#what-can-i-do-in-my-component-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What can I do in my component ?</h3>
-<p>There are a couple of properties that are passed down to your custom component. These can be used to customize the displayed information, and/or to pursue interactions.</p>
+<h3><a class="anchor" aria-hidden="true" id="component-properties"></a><a href="#component-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Component Properties</h3>
+<p>A couple of properties are passed down to your custom component. These can be used to customize the displayed information and/or to pursue interactions.</p>
 <table>
 <thead>
 <tr><th>Property</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>...props</td><td>The payload properties are available on the root object (this.props.)</td></tr>
-<tr><td>onSendData</td><td>This method can be used to send a payload to the bot on the behalf of the user</td></tr>
+<tr><td>onSendData</td><td>This method can be used to send a payload to the bot on behalf of the user</td></tr>
 <tr><td>onFileUpload</td><td>Instead of sending an event, this will upload the specified file</td></tr>
 <tr><td>sentOn</td><td>This is the timestamp of the message.</td></tr>
 <tr><td>isLastGroup</td><td>Indicates if your component is part of the group of messages sent by the bot</td></tr>
@@ -198,10 +235,10 @@ The chat will dispatch an event when the user id is set, which you can listen fo
 </tbody>
 </table>
 <blockquote>
-<p>isLastGroup and isLastOfGroup can be combined to let your component know if the current message is the last one the user is seeing. This can be used, for example, to display feedback buttons, a login form or anything else, that will disappear when the user continues the discussion.</p>
+<p>isLastGroup and isLastOfGroup can be combined to let your component know if the current message is the last one the user is seeing. This can be used, for example, to display feedback buttons, a login form, or anything else, that will disappear when the user continues the discussion.</p>
 </blockquote>
-<h4><a class="anchor" aria-hidden="true" id="the-store"></a><a href="#the-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Store</h4>
-<p>The store orchestrate everything happening on the webchat: whether those buttons are displayed, which page is currently displayed, how to handle configuration changes, etc. This means that your component has a lot of flexibility. Here's a sample of the methods that you can use <a href="https://github.com/botpress/botpress/tree/master/modules/channel-web/src/views/lite/store">click here to see all of them</a>:</p>
+<h3><a class="anchor" aria-hidden="true" id="the-store"></a><a href="#the-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Store</h3>
+<p>The store orchestrates everything happening on the webchat: whether those buttons are displayed, which page is currently displayed, how to handle configuration changes, etc. This means that your component has a lot of flexibility. Here's a sample of the methods that you can use <a href="https://github.com/botpress/botpress/tree/master/modules/channel-web/src/views/lite/store">click here to see all of them</a>:</p>
 <ul>
 <li>Hide or Show the chat</li>
 <li>Add or Remove header buttons</li>
@@ -209,11 +246,11 @@ The chat will dispatch an event when the user id is set, which you can listen fo
 <li>Send messages or payloads</li>
 <li>Create a new conversation</li>
 <li>Update any configuration option</li>
-<li>Set a wrapper which will wrap every single message (more on that below)</li>
+<li>Set a wrapper that will wrap every single message (more on that below)</li>
 </ul>
-<p>Basically, anything you can do while clicking on the UI can be done by your component.</p>
-<h4><a class="anchor" aria-hidden="true" id="injecting-your-components"></a><a href="#injecting-your-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Injecting your components</h4>
-<p>Some components can be replaced by your own. There are also some placeholders which doesn't have any components, but you can inject yours. When you inject a component, it will receive the original component, so you can just wrap it or change it completely. If there's a problem with your component, it will be replaced by the original one.</p>
+<p>Anything you can do while clicking on the UI can be done by your component.</p>
+<h3><a class="anchor" aria-hidden="true" id="injecting-your-components"></a><a href="#injecting-your-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Injecting your components</h3>
+<p>Some components can be replaced by your own. There are also some placeholders that don't have any components, but you can inject yours. When you inject a component, it will receive the original component, so you can wrap it or change it completely. If there's a problem with your component, it will be replaced by the original one.</p>
 <table>
 <thead>
 <tr><th>Location</th><th>Description</th></tr>
@@ -237,8 +274,8 @@ The chat will dispatch an event when the user id is set, which you can listen fo
   }
 })
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" id="wrappers"></a><a href="#wrappers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wrappers</h4>
-<p>Wrappers allows you to transform the content of a payload before passing it down to the renderer, or to another component. We have some <a href="https://github.com/botpress/botpress/tree/master/examples/custom-component/src/views/lite/components/Advanced.jsx">example components here</a></p>
+<h3><a class="anchor" aria-hidden="true" id="wrappers"></a><a href="#wrappers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wrappers</h3>
+<p>Wrappers allow you to transform a payload's content before passing it down to the renderer or another component. We have some <a href="https://github.com/botpress/botpress/tree/master/examples/custom-component/src/views/lite/components/Advanced.jsx">example components here</a></p>
 <p>Here's an example of a wrapped text message:</p>
 <pre><code class="hljs css language-js">payload: {
   <span class="hljs-attr">type</span>: <span class="hljs-string">'custom'</span>,
@@ -250,42 +287,43 @@ The chat will dispatch an event when the user id is set, which you can listen fo
   }
 }
 </code></pre>
-<p>It is also possible to chain multiple custom components using the <code>wrapped</code> property</p>
-<h4><a class="anchor" aria-hidden="true" id="keyboards"></a><a href="#keyboards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Keyboards</h4>
-<p>Keyboard allows you to add elements before or after the composer. Keyboard items can be buttons, or any other type of valid component. Use <code>Keyboard.Prepend</code> to display it before the composer, and <code>Keyboard.Append</code> to display it after.</p>
-<pre><code class="hljs css language-js">...
+<p>It is also possible to chain multiple custom components using the <code>wrapped</code> property.</p>
+<h3><a class="anchor" aria-hidden="true" id="keyboards"></a><a href="#keyboards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Keyboards</h3>
+<p>The keyboard allows you to add elements before or after the composer. Keyboard items can be buttons or any other type of valid component. Use <code>Keyboard.Prepend</code> to display it before the composer, and <code>Keyboard.Append</code> to display it after.</p>
+<p>&quot;`js
+...
 render(){
-  <span class="hljs-comment">// First of all, import the keyboard object</span>
-  <span class="hljs-keyword">const</span> Keyboard = <span class="hljs-keyword">this</span>.props.keyboard
+// First of all, import the keyboard object
+const Keyboard = this.props.keyboard</p>
+<p>// Create any type of component
+const something = <div>This will be displayed over the composer, as long as visible is true</div></p>
+<p>// Your custom keyboard will only be displayed if that message is the last one displayed
+const visible = this.props.isLastGroup &amp;&amp; this.props.isLastOfGroup</p>
+<p>return (
+&lt;Keyboard.Prepend keyboard={something} visible={visible}&gt;
+This text will be displayed in the chat window
+&lt;/Keyboard.Prepend&gt;à
+)
+}</p>
+<pre><code class="hljs">
+<span class="hljs-comment">##### Using a Button Keyboard</span>
 
-  <span class="hljs-comment">// Create any type of component</span>
-  <span class="hljs-keyword">const</span> something = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This will be displayed over the composer, as long as visible is true<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+There is a built-in hook that makes it easy to<span class="hljs-built_in"> add </span>buttons to any element. You can pass down an<span class="hljs-built_in"> array </span>of buttons<span class="hljs-built_in"> or </span>an<span class="hljs-built_in"> array </span>of<span class="hljs-built_in"> array </span>of buttons.
 
-  <span class="hljs-comment">// Your custom keyboard will only be displayed if that message is the last one displayed</span>
-  <span class="hljs-keyword">const</span> visible = <span class="hljs-keyword">this</span>.props.isLastGroup &amp;&amp; <span class="hljs-keyword">this</span>.props.isLastOfGroup
-
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Keyboard.Prepend</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">{something}</span> <span class="hljs-attr">visible</span>=<span class="hljs-string">{visible}</span>&gt;</span>
-      This text will be displayed in the chat window
-    <span class="hljs-tag">&lt;/<span class="hljs-name">Keyboard.Prepend</span>&gt;</span></span>à
-  )
-}
-</code></pre>
-<h5><a class="anchor" aria-hidden="true" id="using-a-button-keyboard"></a><a href="#using-a-button-keyboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using a Button Keyboard</h5>
-<p>There is a built hook that makes it easy to add buttons to any kind of element. You can pass down an array of buttons, or an array of array of buttons.</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> payload = {
-  <span class="hljs-attr">type</span>: <span class="hljs-string">'text'</span>
-  <span class="hljs-attr">text</span>: <span class="hljs-string">'hello'</span>,
-  <span class="hljs-attr">quick_replies</span>: [
-      [{ <span class="hljs-attr">label</span>: <span class="hljs-string">'row 1, button 1'</span>, <span class="hljs-attr">payload</span>: <span class="hljs-string">'something'</span> }, { <span class="hljs-attr">label</span>: <span class="hljs-string">'row 1, button 2'</span>, <span class="hljs-attr">payload</span>: <span class="hljs-string">'something'</span> }],
-      [{ <span class="hljs-attr">label</span>: <span class="hljs-string">'row 2, button 1'</span>, <span class="hljs-attr">payload</span>: <span class="hljs-string">'something'</span> }],
-      [{ <span class="hljs-attr">label</span>: <span class="hljs-string">'row 3, button 1'</span>, <span class="hljs-attr">payload</span>: <span class="hljs-string">'something'</span> }]
+```js<span class="hljs-built_in">
+const </span>payload = {
+  type: 'text'
+  text: 'hello',
+  quick_replies: [
+      [{ label: 'row 1, button 1', payload: 'something' }, { label: 'row 1, button 2', payload: 'something' }],
+      [{ label: 'row 2, button 1', payload: 'something' }],
+      [{ label: 'row 3, button 1', payload: 'something' }]
     ]
 }
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="customizing-web-chat-style"></a><a href="#customizing-web-chat-style" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Customizing Web Chat Style</h1>
 <h2><a class="anchor" aria-hidden="true" id="step-1-styling-css"></a><a href="#step-1-styling-css" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1: Styling (CSS)</h2>
-<p>Paste the following CSS file in the <code>&lt;botpress_dir&gt;/data/assets/modules/channel-web</code> folder. Feel free to change the style here. Original Botpress theme <a href="https://github.com/botpress/botpress/blob/master/modules/channel-web/assets/default.css">can be found here</a>.</p>
+<p>Paste the following CSS file in the <code>&lt;botpress_dir&gt;/data/assets/modules/channel-web</code> folder. Feel free to change the style here—original Botpress theme <a href="https://github.com/botpress/botpress/blob/master/modules/channel-web/assets/default.css">can be found here</a>.</p>
 <pre><code class="hljs css language-css"><span class="hljs-selector-class">.bpw-from-bot</span> <span class="hljs-selector-class">.bpw-chat-bubble</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ececec</span>;
 }
@@ -389,8 +427,8 @@ setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;
   bp.http.createShortLink(botId, <span class="hljs-string">`<span class="hljs-subst">${process.EXTERNAL_URL}</span>/lite/<span class="hljs-subst">${botId}</span>/`</span>, params)
 }, <span class="hljs-number">500</span>)
 </code></pre>
-<p>Feel free to change the webchat config there, the important line to keep is the <code>extraStylesheet</code> property.</p>
+<p>Feel free to change the webchat config there; the critical line to keep is the <code>extraStylesheet</code> property.</p>
 <h2><a class="anchor" aria-hidden="true" id="result"></a><a href="#result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result</h2>
 <p>Restart Botpress Server, and now your bot's default webchat will use your custom CSS theme! Here's our example:
-<img src="/botpress-docs/docs/assets/webchat-customization.png" alt="WebChat Customization"></p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/advanced/cluster"><span class="arrow-prev">← </span><span>Clustering</span></a><a class="docs-next button" href="/botpress-docs/docs/channels/messenger"><span>Facebook Messenger</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#embedding">Embedding</a><ul class="toc-headings"><li><a href="#additional-options">Additional Options</a></li></ul></li><li><a href="#bot-information-page">Bot Information page</a></li><li><a href="#show-and-hide-automatically">Show and hide automatically</a></li><li><a href="#others-events">Others events</a></li><li><a href="#obtaining-the-user-id-of-your-visitor">Obtaining the User ID of your visitor</a></li><li><a href="#configure-at-runtime">Configure at runtime</a></li><li><a href="#advanced-customization">Advanced Customization</a><ul class="toc-headings"><li><a href="#prevent-storing-sensitive-information">Prevent storing sensitive information</a></li><li><a href="#changing-avatar-for-messages">Changing avatar for messages</a></li></ul></li><li><a href="#creating-a-custom-component">Creating a Custom Component</a><ul class="toc-headings"><li><a href="#what-can-i-do-in-my-component-">What can I do in my component ?</a></li></ul></li><li><a href="#step-1-styling-css">Step 1: Styling (CSS)</a></li><li><a href="#step-2-loading-css-file">Step 2: Loading CSS File</a></li><li><a href="#result">Result</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
+<img src="assets/webchat-customization.png" alt="WebChat Customization"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/advanced/cluster"><span class="arrow-prev">← </span><span>Clustering</span></a><a class="docs-next button" href="/botpress-docs/docs/channels/messenger"><span>Facebook Messenger</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#embedding">Embedding</a><ul class="toc-headings"><li><a href="#additional-options">Additional Options</a></li></ul></li><li><a href="#bot-information-page">Bot Information page</a></li><li><a href="#show-and-hide-automatically">Show and hide automatically</a></li><li><a href="#events-available">Events Available</a><ul class="toc-headings"><li><a href="#obtaining-visitors-user-id">Obtaining visitor's User ID</a></li><li><a href="#other-events">Other Events</a></li></ul></li><li><a href="#runtime-configurations">Runtime configurations</a></li><li><a href="#advanced-customization">Advanced Customization</a><ul class="toc-headings"><li><a href="#prevent-storing-sensitive-information">Prevent storing sensitive information</a></li><li><a href="#changing-avatar-for-messages">Changing avatar for messages</a></li><li><a href="#component-properties">Component Properties</a></li><li><a href="#the-store">The Store</a></li><li><a href="#injecting-your-components">Injecting your components</a></li><li><a href="#wrappers">Wrappers</a></li><li><a href="#keyboards">Keyboards</a></li></ul></li><li><a href="#step-1-styling-css">Step 1: Styling (CSS)</a></li><li><a href="#step-2-loading-css-file">Step 2: Loading CSS File</a></li><li><a href="#result">Result</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
