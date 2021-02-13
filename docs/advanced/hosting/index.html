@@ -55,13 +55,37 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Hosting</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
-<p>When you are ready to open your bot to the world, you should deploy it in production mode. When the bot is started in production, the botpress file system (BPFS) is enabled <a href="versions">click here for more details</a> and debug logs are no longer displayed. We also <strong>strongly</strong> recommend using PostgreSQL instead of the embedded SQLite.</p>
+<p>When you are ready to make your chatbot public, you should deploy it in production mode. Starting Botpress in production mode enables the botpress file system (BPFS) <a href="versions">(click here for more details)</a> and debug logs are no longer displayed. We also <strong>strongly</strong> recommend using a PostgreSQL database instead of the embedded SQLite.</p>
+<p>To enforce these changes, run the following commands in your command line program:</p>
+<pre><code class="hljs css language-bash">EXTERNAL_URL=&lt;public_url&gt; \
+BP_PRODUCTION=<span class="hljs-literal">true</span> \
+BPFS_STORAGE=database \
+DATABASE_URL=postgres://login:password@host:port/database \
+./bp
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="offline-nlu-servers"></a><a href="#offline-nlu-servers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Offline NLU Servers</h2>
-<p>Botpress communicates with two services in order to work properly which are Duckling and a Language Server. If your Botpress installation has <strong>no internet</strong> access, you'll have to host these services on-prem. When following the different hosting methods, look for a section on on-prem hosting for further details.</p>
-<h2><a class="anchor" aria-hidden="true" id="duckling-entity-server"></a><a href="#duckling-entity-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Duckling Entity Server</h2>
-<p>The Duckling Library extracts information from the users message. Duckling can extract time, email, currency, and more. The information extracted by Duckling will be reffered to as system entities in this tutorial. This service is very light and requires minimal resources.</p>
+<p>Botpress communicates with the NLU module's two services to work properly, namely Duckling and a Language Server. If your Botpress installation has <strong>no internet</strong> access, you'll have to host these services yourself. Let us look at how you can achieve this.</p>
+<blockquote>
+<p>Self-hosting these servers is optional. Your Botpress installation will use our hosted services by default. However, these need an internet connection and, in the absence of one, should be self-hosted.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="duckling-entity-server"></a><a href="#duckling-entity-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Duckling Entity Server</h3>
+<p>The Duckling Library, which is very light and requires minimal resources, extracts information from the user's message like time, email, currency, and more. This data is referred to as system entities.</p>
+<h4><a class="anchor" aria-hidden="true" id="installing-duckling"></a><a href="#installing-duckling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing Duckling</h4>
+<ul>
+<li><p><strong>Linux and Mac</strong>: You must compile Duckling to run correctly on your specific system. Therefore, you will need to install the software development tools and build Duckling from source.
+Please follow the instructions on the <a href="https://github.com/facebook/duckling">GitHub page of Duckling</a>. We may provide some binaries in the future for the common OS'.</p></li>
+<li><p><strong>Windows</strong>: If you run Botpress on windows, there is a zip file available <a href="https://s3.amazonaws.com/botpress-binaries/tools/duckling/duckling-windows.zip">here</a>.
+Double-click on run-duckling.bat (the bat file sets the console's code page to UTF-8, then runs the executable). The folder <code>zoneinfo</code> includes the Olson timezones, which are already available by default on other OS.</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="how-to-use"></a><a href="#how-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How To Use</h4>
+<p>When you have the duckling binary, edit the file <code>data/global/config/nlu.json</code> and set the parameter <code>ducklingURL</code> to where you run Duckling, for example, if it's on the same server as Botpress (and if you use the default port of <code>8000</code>), you will set:</p>
+<pre><code class="hljs css language-js">{
+  ...
+  <span class="hljs-string">"ducklingURL"</span>: <span class="hljs-string">"http://localhost:8000"</span>
+}
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="language-server"></a><a href="#language-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Language Server</h3>
-<p>The Language Server is used to provide the language models necessary to run the NLU. Language models allows your bot to learn text representations and text classifiers.</p>
+<p>The Language Server is used to provide the language models necessary to run the NLU. Language models allow your bot to learn text representations and text classifiers.</p>
 <p>By default, the Language Server is configured to get <code>100</code> dimensions for words. If you plan to use that Language Server in production, we highly recommend setting the dimensions to <code>300</code> for a better vocabulary.</p>
 <table>
 <thead>
@@ -73,14 +97,15 @@
 </tbody>
 </table>
 <p>* Per language</p>
+<h4><a class="anchor" aria-hidden="true" id="installing-language-server"></a><a href="#installing-language-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing Language Server</h4>
 <ol>
 <li>Open this metadata file: <a href="https://botpress-public.nyc3.digitaloceanspaces.com/embeddings/index.json">https://botpress-public.nyc3.digitaloceanspaces.com/embeddings/index.json</a></li>
 <li>Download the <code>bpe</code> and <code>embeddings</code> files corresponding to your languages. For instance, for french, download the <code>bp.fr.bpe.model</code> file located under <code>remoteUrl</code> and the <code>bp.fr.300.bin</code> also located under <code>remoteUrl</code>.</li>
-<li>Once the files are downloaded, place them somewhere on your server filesystem and take note of the path.</li>
-<li>Add the <code>--offline</code> and the <code>--dim &lt;number&gt;</code> arguments to your command when starting the language server. i.e. <code>./bp lang --offline --dim &lt;number&gt; --langDir &lt;some_path&gt;</code>. Make sure that the dimension argument match the dimensions of the models you have downloaded e.g. <code>bp.en.300.bin</code>.</li>
+<li>Once you download the files, place them somewhere on your server file system and take note of the path.</li>
+<li>Add the <code>--offline</code> and the <code>--dim &lt;number&gt;</code> arguments to your command when starting the language server. i.e. <code>./bp lang --offline --dim &lt;number&gt; --langDir &lt;some_path&gt;</code>. Ensure that the dimension argument matches the dimensions of the models you have downloaded, e.g., <code>bp.en.300.bin</code>.</li>
 </ol>
 <blockquote>
-<p><strong>Note</strong>: <code>300</code> is the number of dimensions the model has. More dimensions means the model size is bigger. You can choose a lighter model if your server specs are limited, but keep in mind that you need to change the <code>--dim</code> parameter when you start the Language Server (e.g. <code>./bp lang --dim &lt;number&gt;</code>).</p>
+<p><strong>Note</strong>: <code>300</code> is the number of dimensions the model has. More dimensions mean the model size is bigger. You can choose a lighter model if your server specs are limited, but keep in mind that you need to change the <code>--dim</code> parameter when you start the Language Server (e.g. <code>./bp lang --dim &lt;number&gt;</code>).</p>
 </blockquote>
 <table>
 <thead>
@@ -101,31 +126,8 @@
 <tr><td>pl</td><td>Polish</td></tr>
 </tbody>
 </table>
-<h2><a class="anchor" aria-hidden="true" id="binary"></a><a href="#binary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Binary</h2>
-<p>Run the following command in your command line:</p>
-<pre><code class="hljs css language-bash">EXTERNAL_URL=&lt;public_url&gt; \
-BP_PRODUCTION=<span class="hljs-literal">true</span> \
-BPFS_STORAGE=database \
-DATABASE_URL=postgres://login:password@host:port/database \
-./bp
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="hosting-duckling-and-the-language-server"></a><a href="#hosting-duckling-and-the-language-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hosting Duckling and the Language Server</h3>
-<p>This step is optional. Your Botpress installation will use our hosted services by default.</p>
-<h4><a class="anchor" aria-hidden="true" id="duckling"></a><a href="#duckling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Duckling</h4>
-<p>When you have the duckling binary, simply edit the file <code>data/global/config/nlu.json</code> and set the parameter <code>ducklingURL</code> to where you run Duckling, for example, if it's on the same server as Botpress (and if you use the default port of <code>8000</code>), you would set:</p>
-<pre><code class="hljs css language-js">{
-  ...
-  <span class="hljs-string">"ducklingURL"</span>: <span class="hljs-string">"http://localhost:8000"</span>
-}
-</code></pre>
-<ul>
-<li><p><strong>Linux and Mac</strong>: Duckling must be compiled to run correctly on your specific system. Therefore, you will need to install the software development tools and build it from source.
-Please follow the instructions on the <a href="https://github.com/facebook/duckling">GitHub page of Duckling</a>. We may provide some binaries in the future for common OS.</p></li>
-<li><p><strong>Windows</strong>: If you run Botpress on windows, there is a zip file available <a href="https://s3.amazonaws.com/botpress-binaries/tools/duckling/duckling-windows.zip">here</a>.
-Simply double-click on run-duckling.bat (the bat file simply sets the code page of the console to UTF-8, then runs the executable). The folder <code>zoneinfo</code> includes the Olson timezones which are already available by default on other OS.</p></li>
-</ul>
-<h4><a class="anchor" aria-hidden="true" id="language-server-1"></a><a href="#language-server-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Language Server</h4>
-<p>The language server is embedded in Botpress and can be started by command line. Here are the steps to run it and use it with your Botpress Server:</p>
+<h4><a class="anchor" aria-hidden="true" id="using-your-language-server"></a><a href="#using-your-language-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using your Language Server</h4>
+<p>The language server embedded in Botpress is started using a command-line program. Here are the steps to run it and use it with your Botpress Server:</p>
 <ol>
 <li>Start the language server with <code>./bp lang</code></li>
 <li>In <code>data/global/config/nlu.json</code>, change <code>languageSources.endpoint</code> to <code>http://localhost:3100</code></li>
@@ -133,7 +135,8 @@ Simply double-click on run-duckling.bat (the bat file simply sets the code page 
 <li>Install the desired languages your server should support</li>
 <li>Restart the language server with parameters <code>./bp lang --readOnly</code></li>
 </ol>
-<p>ReadOnly prevents anyone from adding or removing languages and can only be used to fetch embeddings. There are additional parameters that can be configured (for example, to require authentication), you can see them by typing <code>./bp lang help</code>.</p>
+<p>ReadOnly prevents anyone from adding or removing languages and can only be used to fetch embeddings. There are additional parameters that can be configured (for example, to require authentication); you can see them by typing <code>./bp lang help</code>.</p>
+<p>A common configuration of the server is <code>./bp lang --offline --dim 300 --langDir C:/&lt;path_to_fasttext-library&gt;</code></p>
 <pre><code class="hljs">Options:
       --version           Show version number                          [boolean]
   -v, --verbose           verbosity level                                [count]
@@ -150,7 +153,6 @@ Simply double-click on run-duckling.bat (the bat file simply sets the code page 
       --dim               Number of language dimensions provided (25, 100 <span class="hljs-keyword">or</span> 300 at the moment)                          [default: 100]
       --domain            Name of the domain where those embeddings were trained on.                                    [default: <span class="hljs-string">"bp"</span>]
 </code></pre>
-<p><strong>Offline Server</strong>: Follow the Offline Server <a href="#offline-nlu-servers">instructions</a> if you're running a server without Internet access.</p>
 <h2><a class="anchor" aria-hidden="true" id="docker"></a><a href="#docker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker</h2>
 <p>This command will run Botpress within a single container and use the remote Duckling and Language Server. You can get the latest <code>stable</code> or <code>nightly</code> versions on <a href="https://hub.docker.com/r/botpress/server/tags">DockerHub</a>.</p>
 <blockquote>
@@ -162,14 +164,12 @@ Simply double-click on run-duckling.bat (the bat file simply sets the code page 
 -v botpress_data:/botpress/data \
 botpress/server:$TAG</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="hosting-duckling-and-the-language-server-1"></a><a href="#hosting-duckling-and-the-language-server-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hosting Duckling and the Language Server</h3>
-<p>This step is optional. Your Botpress installation will use our hosted services by default.</p>
-<p>Choose to either run one of two containers (two containers is recommended).</p>
-<h4><a class="anchor" aria-hidden="true" id="running-a-single-container"></a><a href="#running-a-single-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running a Single Container</h4>
+<p>Choose to either run one of two containers (two containers are recommended).</p>
+<h3><a class="anchor" aria-hidden="true" id="running-a-single-container"></a><a href="#running-a-single-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running a Single Container</h3>
+<p>Doing this will run Duckling, the Language Server, and Botpress Server within the same container. It will set some environment variables so that services talk to each other.</p>
 <blockquote>
-<p>⚠️ Running multiple processes inside a single container should <strong>never</strong> be done in production.</p>
+<p>⚠️ You should <strong>never</strong> run multiple processes inside a single container in production.</p>
 </blockquote>
-<p>This will run Duckling, the Language Server and Botpress Server within the same container. It will set some environment variables so that services talk to each other.</p>
 <pre><code class="hljs css language-bash">docker run -d \
 --name bp \
 -p 3000:3000 -p 3100:3100 \
@@ -178,8 +178,8 @@ botpress/server:$TAG</span>
 botpress/server:<span class="hljs-variable">$TAG</span> \
 bash -c <span class="hljs-string">"./duckling &amp; ./bp lang --langDir /botpress/data/embeddings &amp; ./bp"</span>
 </code></pre>
-<p><strong>Offline Server</strong>: Follow the Offline Server <a href="#offline-servers">instructions</a> if you're running a server without Internet access.</p>
-<h4><a class="anchor" aria-hidden="true" id="running-multiple-containers"></a><a href="#running-multiple-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running Multiple Containers</h4>
+<p><strong>Offline Server</strong>: Follow the Offline Server <a href="#offline-nlu-servers">instructions</a> if you're running a server without Internet access.</p>
+<h3><a class="anchor" aria-hidden="true" id="running-multiple-containers"></a><a href="#running-multiple-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running Multiple Containers</h3>
 <ol>
 <li>Run the Language Server.</li>
 </ol>
@@ -191,7 +191,7 @@ botpress/server:<span class="hljs-variable">$TAG</span> \
 bash -c <span class="hljs-string">"./bp lang --langDir /botpress/data/embeddings"</span>
 </code></pre>
 <ol start="2">
-<li>Run Botpress Server and Duckling within the same container. The usage of Duckling is very light here so we can justify using it in the same container as Botpress Server.</li>
+<li>Run Botpress Server and Duckling within the same container. Duckling's usage is very light here, so we can justify using it in the same container as Botpress Server.</li>
 </ol>
 <pre><code class="hljs css language-bash">docker run -d \
 --name bp \
@@ -201,7 +201,7 @@ bash -c <span class="hljs-string">"./bp lang --langDir /botpress/data/embeddings
 botpress/server:<span class="hljs-variable">$TAG</span> \
 bash -c <span class="hljs-string">"./duckling &amp; ./bp"</span>
 </code></pre>
-<p><strong>Offline Server</strong>: Follow the Offline Server <a href="#offline-servers">instructions</a> if you're running a server without Internet access.</p>
+<p><strong>Offline Server</strong>: Follow the Offline Server <a href="#offline-nlu-servers">instructions</a> if you're running a server without Internet access.</p>
 <h2><a class="anchor" aria-hidden="true" id="heroku"></a><a href="#heroku" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Heroku</h2>
 <h3><a class="anchor" aria-hidden="true" id="prerequisite"></a><a href="#prerequisite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisite</h3>
 <ul>
@@ -210,7 +210,7 @@ bash -c <span class="hljs-string">"./duckling &amp; ./bp"</span>
 <li>Type <code>heroku login</code> in your terminal to log in to Heroku.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="preparing-the-docker-image"></a><a href="#preparing-the-docker-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Preparing the Docker image</h3>
-<p>To create a new bot from scratch, simply create a file named <code>Dockerfile</code> in any directory. Write this snippet in the file (and replace $VERSION with the latest one in <a href="https://hub.docker.com/r/botpress/server/tags/">hub.docker.com</a>)</p>
+<p>To create a new bot from scratch, create a file named <code>Dockerfile</code> in any directory. Write this snippet in the file (and replace $VERSION with the latest one in <a href="https://hub.docker.com/r/botpress/server/tags/">hub.docker.com</a>)</p>
 <pre><code class="hljs css language-docker"><span class="hljs-keyword">FROM</span> botpress/server:$VERSION
 <span class="hljs-keyword">WORKDIR</span><span class="bash"> /botpress</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"/bin/bash"</span>, <span class="hljs-string">"-c"</span>, <span class="hljs-string">"./duckling &amp; ./bp"</span>]</span>
@@ -239,6 +239,7 @@ heroku container:release web --app <span class="hljs-variable">$APP_NAME</span>
     ├── bots
     └── global
 </code></pre>
+<p>Make sure that <code>Dockerfile</code> has no extension. If you save it as <code>Dockerfile.txt</code>, for example, it will not be loaded.</p>
 <p>Edit the <code>Dockerfile</code> so it looks like this, then deploy it with the same instructions as before:</p>
 <pre><code class="hljs css language-docker"><span class="hljs-keyword">FROM</span> botpress/server:$VERSION
 <span class="hljs-keyword">ADD</span><span class="bash"> . /botpress</span>
@@ -246,16 +247,16 @@ heroku container:release web --app <span class="hljs-variable">$APP_NAME</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"./bp"</span>]</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="using-postgres-as-the-database"></a><a href="#using-postgres-as-the-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Postgres as the database</h3>
-<p>By default, Botpress uses SQLite as a database for persistence. This doesn't work well on Heroku because it has ephemeral storage, which means data will get lost every day or so. The best is to switch the database to Postgres (please make sure you are using Postgres 9.5 or higher):</p>
+<p>By default, Botpress uses SQLite as a database for persistence, which doesn't work well on Heroku because it has temporary storage, which means data will get lost every day or two. The best is to switch the database to Postgres (please make sure you are using Postgres 9.5 or higher):</p>
 <pre><code class="hljs css language-bash"><span class="hljs-comment"># Get a free Postgres database</span>
 heroku addons:create heroku-postgresql --app <span class="hljs-variable">$APP_NAME</span>
 
 <span class="hljs-comment"># Tell Botpress to use Postgres</span>
 heroku config:<span class="hljs-built_in">set</span> DATABASE=postgres --app <span class="hljs-variable">$APP_NAME</span>
 </code></pre>
-<p>You don't have to change anything else, since Heroku will define the DATABASE_URL environment variable with the required parameters. It is also possible to find your Postgres credentials on the Heroku dashboard: Overview &gt; Heroku Postgres &gt; Settings &gt; View Credentials.</p>
+<p>You don't have to change anything else since Heroku will define the DATABASE_URL environment variable with the required parameters. It is also possible to find your Postgres credentials on the Heroku dashboard: Overview &gt; Heroku Postgres &gt; Settings &gt; View Credentials.</p>
 <h2><a class="anchor" aria-hidden="true" id="aws"></a><a href="#aws" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AWS</h2>
-<p>These steps shows how to deploy manually your bot on Amazon EC2. Create a new instance on EC2 (or use an existing one), and type the following commands:</p>
+<p>The steps below show how to deploy your bot on Amazon EC2 manually. Create a new instance on EC2 (or use an existing one), and type the following commands:</p>
 <pre><code class="hljs css language-bash">sudo apt update
 sudo apt install unzip
 
@@ -268,29 +269,15 @@ unzip botpress-<span class="hljs-variable">$VERSION</span>-linux-x64.zip
 <span class="hljs-comment"># Launch the app</span>
 ./bp
 </code></pre>
-<p>This gets you up and running locally on port 3000.</p>
+<p>The instructions above get you up and running locally on port 3000.</p>
 <h3><a class="anchor" aria-hidden="true" id="setting-up-nginx"></a><a href="#setting-up-nginx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up NGINX</h3>
 <p>NGINX will allow us to reach two goals: serve as a reverse proxy and handle caching of assets.</p>
 <pre><code class="hljs css language-bash">apt install nginx
 sudo mkdir /tmp/nginx_cache
 </code></pre>
-<p>Then, edit the file <code>/etc/nginx/sites-available/default</code> and configure it using our suggested configuration (in a section below)</p>
-<h3><a class="anchor" aria-hidden="true" id="securing-your-bot-https"></a><a href="#securing-your-bot-https" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Securing your bot (HTTPS)</h3>
-<p>To secure your installation, we will use Let's encrypt:</p>
-<pre><code class="hljs css language-bash">sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:certbot/certbot
-sudo apt-get update
-sudo apt-get install python-certbot-nginx
-sudo certbot --nginx
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="monitoring-and-resilience"></a><a href="#monitoring-and-resilience" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitoring and resilience</h3>
-<p>If you want to add resilience so your bot is restarted if there's an issue, we recommend using PM2.</p>
-<pre><code class="hljs css language-bash">sudo apt install npm
-sudo npm install -g pm2
-sudo pm2 startup
-</code></pre>
+<p>Then, edit the file <code>/etc/nginx/sites-available/default</code> and configure it using our suggested configuration.</p>
 <h3><a class="anchor" aria-hidden="true" id="secure-configuration-for-the-nginx-server"></a><a href="#secure-configuration-for-the-nginx-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Secure configuration for the NGINX server</h3>
-<p>This is the configuration we recommend deploying Botpress in production.</p>
+<p>We recommend deploying Botpress in production using this configuration.</p>
 <pre><code class="hljs css language-bash">http {
   <span class="hljs-comment"># Disable sending the server identification</span>
   server_tokens off;
@@ -373,12 +360,26 @@ sudo pm2 startup
   }
 }
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" id="securing-your-bot-https"></a><a href="#securing-your-bot-https" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Securing your bot (HTTPS)</h3>
+<p>To secure your installation, we will use Let's encrypt:</p>
+<pre><code class="hljs css language-bash">sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx
+sudo certbot --nginx
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="monitoring-and-resilience"></a><a href="#monitoring-and-resilience" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitoring and resilience</h3>
+<p>If you want to add resilience, so your bot is restarted, if there's an issue, we recommend using PM2.</p>
+<pre><code class="hljs css language-bash">sudo apt install npm
+sudo npm install -g pm2
+sudo pm2 startup
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="aws-using-dokku"></a><a href="#aws-using-dokku" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AWS using Dokku</h2>
-<p>Dokku is like a mini heroku on-prem. Once setup on your host, it's very easy to push deployments via a simple git push.</p>
+<p>Dokku is like a mini Heroku on-prem. Once set up on your host, it's effortless to push deployments via a simple git push.</p>
 <h3><a class="anchor" aria-hidden="true" id="creating-your-ec2-instance"></a><a href="#creating-your-ec2-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating your EC2 instance</h3>
 <ol>
 <li>Open the EC2 Dashboard and click on <code>Instances</code>. Press the <code>Launch Instance</code> button</li>
-<li>At the <code>Choose AMI</code> step, we recommend using Ubuntu Server 18.04 LTS, we also support Centos 7.5, Debian 8.11, Red-hat 7.5, Ununtu 16.04</li>
+<li>At the <code>Choose AMI</code> step, we recommend using Ubuntu Server 18.04 LTS; we also support Centos 7.5, Debian 8.11, Red-hat 7.5, Ubuntu 16.04</li>
 <li>Click on the tab named <code>6. Configure Security Group</code></li>
 <li>Add these rules:</li>
 </ol>
@@ -395,12 +396,12 @@ sudo pm2 startup
 <pre><code class="hljs css language-bash">wget https://raw.githubusercontent.com/dokku/dokku/v0.12.13/bootstrap.sh
 sudo DOKKU_TAG=v0.12.13 bash bootstrap.sh
 </code></pre>
-<p>Once setup is completed, open your web browser to your server's IP address and follow the instructions to configure your public key. This is the key that will be used when you will push your content to deploy your bot.</p>
+<p>Once you complete setup, open your web browser to your server's IP address and follow the instructions to configure your public key. This key is used when you will push your content to deploy your bot.</p>
 <p>Then, on your Dokku host, type this command to create a new app. We are using <code>botpress-server</code> in this guide, but it could be anything you'd like.</p>
 <pre><code class="hljs css language-bash">dokku apps:create botpress-server
 </code></pre>
-<p>Now that everything is setup correctly on your remote host, let's deploy it.</p>
-<p>On your local host, create an empty directory and add a file named <code>Dockerfile</code> with the following content:</p>
+<p>Now that everything is set up correctly on your remote host let's deploy it.</p>
+<p>On your localhost, create an empty directory and add a file named <code>Dockerfile</code> with the following content:</p>
 <pre><code class="hljs css language-docker"><span class="hljs-keyword">FROM</span> botpress/server:$VERSION
 <span class="hljs-keyword">WORKDIR</span><span class="bash"> /botpress</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"./bp"</span>]</span>
@@ -420,7 +421,7 @@ git commit -m first
 git push dokku master
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="adding-a-postgres-database"></a><a href="#adding-a-postgres-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding a POSTGRES database</h3>
-<p>Now your bot is running on the host, but it is still using the SQLite database. Fortunately, Dokku has an open-source plugin that makes it very easy to setup the required database.</p>
+<p>Now your bot is running on the host, but it is still using the SQLite database. Fortunately, Dokku has an open-source plugin that makes it very easy to set up the required database.</p>
 <pre><code class="hljs css language-bash"><span class="hljs-comment"># This will download and install the Postgres plugin</span>
 sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
 
@@ -431,10 +432,10 @@ dokku postgres:link botpress-db botpress-server
 <span class="hljs-comment"># Tell Botpress what kind of database to use</span>
 dokku config:<span class="hljs-built_in">set</span> botpress-server DATABASE=postgres
 </code></pre>
-<p>As with Heroku, the <code>DATABASE_URL</code> environment variable will already be set.</p>
+<p>As with Heroku, the <code>DATABASE_URL</code> environment variable is already set.</p>
 <h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
 <p><code>channel-web.infoPage.description</code> --&gt; <code>BP_MODULE_CHANNEL_WEB_INFOPAGE_DESCRIPTION</code></p>
 <blockquote>
 <p><strong>Deprecation warning</strong>: The old <code>BP_%MODULENAME%_%config%</code> is deprecated and will be removed in Botpress 12.</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/advanced/performances"><span class="arrow-prev">← </span><span>Performances</span></a><a class="docs-next button" href="/botpress-docs/docs/advanced/versions"><span>Version Control</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#offline-nlu-servers">Offline NLU Servers</a></li><li><a href="#duckling-entity-server">Duckling Entity Server</a><ul class="toc-headings"><li><a href="#language-server">Language Server</a></li></ul></li><li><a href="#binary">Binary</a><ul class="toc-headings"><li><a href="#hosting-duckling-and-the-language-server">Hosting Duckling and the Language Server</a></li></ul></li><li><a href="#docker">Docker</a><ul class="toc-headings"><li><a href="#hosting-duckling-and-the-language-server-1">Hosting Duckling and the Language Server</a></li></ul></li><li><a href="#heroku">Heroku</a><ul class="toc-headings"><li><a href="#prerequisite">Prerequisite</a></li><li><a href="#preparing-the-docker-image">Preparing the Docker image</a></li><li><a href="#deploying-with-existing-data">Deploying with existing data</a></li><li><a href="#using-postgres-as-the-database">Using Postgres as the database</a></li></ul></li><li><a href="#aws">AWS</a><ul class="toc-headings"><li><a href="#setting-up-nginx">Setting up NGINX</a></li><li><a href="#securing-your-bot-https">Securing your bot (HTTPS)</a></li><li><a href="#monitoring-and-resilience">Monitoring and resilience</a></li><li><a href="#secure-configuration-for-the-nginx-server">Secure configuration for the NGINX server</a></li></ul></li><li><a href="#aws-using-dokku">AWS using Dokku</a><ul class="toc-headings"><li><a href="#creating-your-ec2-instance">Creating your EC2 instance</a></li><li><a href="#install-and-configure-dokku">Install and configure Dokku</a></li><li><a href="#adding-a-postgres-database">Adding a POSTGRES database</a></li><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/botpress-docs/docs/advanced/performances"><span class="arrow-prev">← </span><span>Performances</span></a><a class="docs-next button" href="/botpress-docs/docs/advanced/versions"><span>Version Control</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#offline-nlu-servers">Offline NLU Servers</a><ul class="toc-headings"><li><a href="#duckling-entity-server">Duckling Entity Server</a></li><li><a href="#language-server">Language Server</a></li></ul></li><li><a href="#docker">Docker</a><ul class="toc-headings"><li><a href="#running-a-single-container">Running a Single Container</a></li><li><a href="#running-multiple-containers">Running Multiple Containers</a></li></ul></li><li><a href="#heroku">Heroku</a><ul class="toc-headings"><li><a href="#prerequisite">Prerequisite</a></li><li><a href="#preparing-the-docker-image">Preparing the Docker image</a></li><li><a href="#deploying-with-existing-data">Deploying with existing data</a></li><li><a href="#using-postgres-as-the-database">Using Postgres as the database</a></li></ul></li><li><a href="#aws">AWS</a><ul class="toc-headings"><li><a href="#setting-up-nginx">Setting up NGINX</a></li><li><a href="#secure-configuration-for-the-nginx-server">Secure configuration for the NGINX server</a></li><li><a href="#securing-your-bot-https">Securing your bot (HTTPS)</a></li><li><a href="#monitoring-and-resilience">Monitoring and resilience</a></li></ul></li><li><a href="#aws-using-dokku">AWS using Dokku</a><ul class="toc-headings"><li><a href="#creating-your-ec2-instance">Creating your EC2 instance</a></li><li><a href="#install-and-configure-dokku">Install and configure Dokku</a></li><li><a href="#adding-a-postgres-database">Adding a POSTGRES database</a></li><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/botpress-docs/" class="nav-home"><img src="/botpress-docs/img/botpress.png" alt="| Developers Guide" width="66" height="58"/></a><div><h5>Docs</h5><a href="/botpress-docs/docs/doc1.html">Getting Started (or other categories)</a><a href="/botpress-docs/docs/doc2.html">Guides (or other categories)</a><a href="/botpress-docs/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/botpress-docs/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/botpress-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/botpress-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2021 Botpress Inc.</section></footer></div></body></html>
